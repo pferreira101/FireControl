@@ -1,0 +1,12 @@
+/*********************************************
+ * OPL 12.8.0.0 Data
+ * Author: Pedro
+ * Creation Date: Nov 27, 2018 at 6:56:55 PM
+ *********************************************/
+
+ SheetConnection sheet("Fogos.xlsx");
+ 
+ norte from SheetRead(sheet, "Questao1!norte");
+ este from SheetRead(sheet, "Questao1!este");
+ sul from SheetRead(sheet, "Questao1!sul");
+ oeste from SheetRead(sheet, "Questao1!oeste");
