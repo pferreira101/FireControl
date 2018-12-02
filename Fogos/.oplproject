@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="ASCII"?><project>
 	<version>1.0</version>
 	<configs>
-		<config default="true" name="Configuration1" category="opl">
-			<ref name="Fogos.mod" type="model">
+		<config default="true" name="1 - Primal" category="opl">
+			<ref name="Primal.mod" type="model">
 			</ref>
-			<ref name="Fogos.ops" type="setting">
+			<ref name="Primal.ops" type="setting">
 			</ref>
-			<ref name="Fogos.dat" type="data">
+			<ref name="Primal.dat" type="data">
+			</ref>
+		</config>
+		<config default="false" name="2 - Dual" category="opl">
+			<ref name="Dual.mod" type="model">
+			</ref>
+			<ref name="Dual.ops" type="setting">
+			</ref>
+			<ref name="Dual.dat" type="data">
 			</ref>
 		</config>
 	</configs>
