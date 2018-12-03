@@ -46,11 +46,13 @@
 	 }	  
  }
 
-
+// Variáveis de Decisão
  dvar int x[1..n][1..n];
-  
+ 
+// Função Objetivo 
  minimize sum(i in 1..n, j in 1..n) d[i][j]*x[i][j];
 
+// Sujeito a:
   subject to {
  	forall(i in 1..n) x[i][i] == 0;
  	sum(j in 2..n) (x[1][j] - x[j][1]) == n-1;
