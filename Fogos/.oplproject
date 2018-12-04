@@ -17,6 +17,16 @@
 			<ref name="Dual.dat" type="data">
 			</ref>
 		</config>
+		<config default="false" name="3 - Recursos" category="opl">
+		</config>
+		<config default="false" name="4 - Probabilidades" category="opl">
+			<ref name="Probabilidades.ops" type="setting">
+			</ref>
+			<ref name="Probabilidades.dat" type="data">
+			</ref>
+			<ref name="Probabilidades.mod" type="model">
+			</ref>
+		</config>
 	</configs>
 	
 </project>

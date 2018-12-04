@@ -1,0 +1,15 @@
+/*********************************************
+ * OPL 12.8.0.0 Data
+ * Author: Pedro
+ * Creation Date: Dec 4, 2018 at 1:50:05 PM
+ *********************************************/
+
+ SheetConnection sheet("Fogos.xlsx");
+ 
+ a from SheetRead(sheet, "Questao1!a");
+ d from SheetRead(sheet, "Questao1!dist");
+  
+ b from SheetRead(sheet, "Questao3!b");
+ delta from SheetRead(sheet, "Questao3!delta");
+ p_aux from SheetRead(sheet, "Questao3!p");
+ tmax from SheetRead(sheet, "Questao3!tmax");

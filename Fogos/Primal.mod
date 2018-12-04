@@ -5,14 +5,13 @@
  *********************************************/
 
  int a = ...;
- int b = ...;
- int n = a * b;
+ int n = a * a;
 
  
- int norte[1..a][1..b] = ...;
- int este[1..a][1..b] = ...;
- int sul[1..a][1..b] = ...;
- int oeste[1..a][1..b] = ...;
+ int norte[1..a][1..a] = ...;
+ int este[1..a][1..a] = ...;
+ int sul[1..a][1..a] = ...;
+ int oeste[1..a][1..a] = ...;
  
  int d[1..n][1..n];
  execute {
@@ -22,26 +21,11 @@
 	 		var resto = i%a;
 	 		if(resto == 0) resto = a;
 	 		
-	 		if((i-j) == a && dv!=1) {
-	 			d[i][j] = norte[dv][resto];
-	 			writeln("ARCO " + i +"-" + j + " ---- Dist = " + norte[dv][resto] + " -- norte("+dv+","+resto+")"); 		
-	 		}
-	 		else if((i-j) == -1 && resto!=a)  { 
-	 			d[i][j] = este[dv][resto];
-	 			writeln("ARCO " + i +"-" + j + " ---- Dist = " + este[dv][resto] + " -- este("+dv+","+resto+")"); 		
-	 		}
-	 		else if((i-j) == -a && dv!=a)  {
-	 			d[i][j] = sul[dv][resto];
-	 			writeln("ARCO " + i +"-" + j + " ---- Dist = " + sul[dv][resto] + " -- sul("+dv+","+resto+")");
-	 		}
-	 		else if((i-j) == 1 && resto!=1)  {
-	 			d[i][j] = oeste[dv][resto];
-	 			writeln("ARCO " + i +"-" + j + " ---- Dist = " + oeste[dv][resto] + " -- oeste("+dv+","+resto+")");
-	 		}
-	 		else {
-	 			d[i][j] = 99999;	 		
-	 			writeln("ARCO " + i +"-" + j + " ---- Não existe");
-	 		}	 	
+	 		if((i-j) == a && dv!=1) d[i][j] = norte[dv][resto];
+	 		else if((i-j) == -1 && resto!=a) d[i][j] = este[dv][resto];
+	 		else if((i-j) == -a && dv!=a) d[i][j] = sul[dv][resto];
+	 		else if((i-j) == 1 && resto!=1) d[i][j] = oeste[dv][resto];
+	 		else d[i][j] = 99999; 	
 	 	}	
 	 }	  
  }

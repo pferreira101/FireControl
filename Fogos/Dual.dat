@@ -7,8 +7,4 @@
  SheetConnection sheet("Fogos.xlsx");
  
  a from SheetRead(sheet, "Questao1!a");
- b from SheetRead(sheet, "Questao1!b");
- norte from SheetRead(sheet, "Questao1!norte");
- este from SheetRead(sheet, "Questao1!este");
- sul from SheetRead(sheet, "Questao1!sul");
- oeste from SheetRead(sheet, "Questao1!oeste");
+ d from SheetRead(sheet, "Questao1!dist");
