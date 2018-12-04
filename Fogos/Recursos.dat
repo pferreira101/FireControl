@@ -1,0 +1,22 @@
+/*********************************************
+ * OPL 12.8.0.0 Data
+ * Author: perei
+ * Creation Date: 03/12/2018 at 15:43:52
+ *********************************************/
+
+ SheetConnection sheet("Fogos.xlsx");
+ 
+ a from SheetRead(sheet, "Questao1!a");
+ b from SheetRead(sheet, "Questao1!b");
+ norte from SheetRead(sheet, "Questao1!norte");
+ este from SheetRead(sheet, "Questao1!este");
+ sul from SheetRead(sheet, "Questao1!sul");
+ oeste from SheetRead(sheet, "Questao1!oeste");
+ 
+ delta from SheetRead(sheet, "Questao2!delta");
+ nr from SheetRead(sheet, "Questao2!nr");
+ ignicao from SheetRead(sheet,"Questao2!ig");
+ proteger from SheetRead(sheet,"Questao2!prot");
+ 
+ r to SheetWrite(sheet, "Questao2!rec");
+ d to SheetWrite(sheet,"Questao2!d");
