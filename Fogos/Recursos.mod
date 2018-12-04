@@ -6,24 +6,18 @@
  
  // COMO RESTRINGIR ISTO A SER DE UMA CÉLULA PARA OUTRA?
  
- int a = ...; // 7
- int b = ...; // 7
- int n = a * b; // numero de nodos = 49
- int delta = ...; // constante de retardação
- int nr = ...; // numero de recursos
-
- int norte[1..a][1..b] = ...;
- int este[1..a][1..b] = ...;
- int sul[1..a][1..b] = ...;
- int oeste[1..a][1..b] = ...;
+ int a = ...;
+ int n = a * a;
+ int d[1..n][1..n] = ...;
  
+ int b = ...;
+ int delta = ...; // constante de retardação
  int ignicao = ...; // celula de ignicao
  int proteger = ...; // celula a proteger
  
- int d[1..n][1..n];
+
  
- // É PRECISO CALCULAR OS TEMPOS ENTRE OS NODOS DOS CAMINHOS ENTRE IG E PROT
-//  ...
+
  
  // Variáveis de Decisão
  dvar int x[1..n][1..n]; // numero de caminhos no nodo ij  (???)
@@ -41,5 +35,5 @@
  	
  	forall(i in 1..n) y[i]<=1; // como juntar estas duas?
  	forall(i in 1..n) y[i]>=0;
- 	sum(i in 1..n) y[i] <= nr; // restricao numero de recursos
+ 	sum(i in 1..n) y[i] <= b; // restricao numero de recursos
  } 

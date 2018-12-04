@@ -7,16 +7,11 @@
  SheetConnection sheet("Fogos.xlsx");
  
  a from SheetRead(sheet, "Questao1!a");
- b from SheetRead(sheet, "Questao1!b");
- norte from SheetRead(sheet, "Questao1!norte");
- este from SheetRead(sheet, "Questao1!este");
- sul from SheetRead(sheet, "Questao1!sul");
- oeste from SheetRead(sheet, "Questao1!oeste");
+ d from SheetRead(sheet, "Questao1!dist");
  
  delta from SheetRead(sheet, "Questao2!delta");
- nr from SheetRead(sheet, "Questao2!nr");
+ b from SheetRead(sheet, "Questao2!b");
  ignicao from SheetRead(sheet,"Questao2!ig");
  proteger from SheetRead(sheet,"Questao2!prot");
  
- r to SheetWrite(sheet, "Questao2!rec");
- d to SheetWrite(sheet,"Questao2!d");
+ //r to SheetWrite(sheet, "Questao2!rec");

@@ -18,6 +18,12 @@
 			</ref>
 		</config>
 		<config default="false" name="3 - Recursos" category="opl">
+			<ref name="Recursos.mod" type="model">
+			</ref>
+			<ref name="Recursos.dat" type="data">
+			</ref>
+			<ref name="Recursos.ops" type="setting">
+			</ref>
 		</config>
 		<config default="false" name="4 - Probabilidades" category="opl">
 			<ref name="Probabilidades.ops" type="setting">
