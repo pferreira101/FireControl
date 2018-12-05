@@ -6,12 +6,19 @@
 
  SheetConnection sheet("Fogos.xlsx");
  
- a from SheetRead(sheet, "Questao1!a");
- d from SheetRead(sheet, "Questao1!dist");
+ //a from SheetRead(sheet, "Questao1!a");
+ //d from SheetRead(sheet, "Questao1!dist");
  
  delta from SheetRead(sheet, "Questao2!delta");
  b from SheetRead(sheet, "Questao2!b");
- ignicao from SheetRead(sheet,"Questao2!ig");
- proteger from SheetRead(sheet,"Questao2!prot");
+ cel_igni from SheetRead(sheet,"Questao2!ig");
+ cel_obj from SheetRead(sheet,"Questao2!prot");
+ 
+ 
+ SheetConnection sheet1("a.xlsx");
+ norte from SheetRead(sheet1, "Questao1!n");
+ este from SheetRead(sheet1, "Questao1!e");
+ sul from SheetRead(sheet1, "Questao1!s");
+ oeste from SheetRead(sheet1, "Questao1!o");
  
  //r to SheetWrite(sheet, "Questao2!rec");

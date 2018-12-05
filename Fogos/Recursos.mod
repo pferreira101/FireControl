@@ -4,36 +4,47 @@
  * Creation Date: 03/12/2018 at 15:43:39
  *********************************************/
  
- // COMO RESTRINGIR ISTO A SER DE UMA CÉLULA PARA OUTRA?
+ int a = 3;//...;
+ int n = a*a;
+ int d[1..n][1..n];// = ...;
  
- int a = ...;
- int n = a * a;
- int d[1..n][1..n] = ...;
+ int norte[1..a][1..a] = ...;
+ int este[1..a][1..a] = ...;
+ int sul[1..a][1..a] = ...;
+ int oeste[1..a][1..a] = ...;
+
+ execute {
+	 for(var i = 1; i<=n; i++) {
+	 	for(var j = 1; j<=n; j++){
+	 		var dv = Opl.ceil(i/a);
+	 		var resto = i%a;
+	 		if(resto == 0) resto = a;
+	 		
+	 		if((i-j) == a && dv!=1) d[i][j] = norte[dv][resto];
+	 		else if((i-j) == -1 && resto!=a) d[i][j] = este[dv][resto];
+	 		else if((i-j) == -a && dv!=a) d[i][j] = sul[dv][resto];
+	 		else if((i-j) == 1 && resto!=1) d[i][j] = oeste[dv][resto];
+	 		else d[i][j] = 99999; 	
+	 	}	
+	 }	  
+ }
+ 
  
  int b = ...;
- int delta = ...; // constante de retardação
- int ignicao = ...; // celula de ignicao
- int proteger = ...; // celula a proteger
+ int delta = ...;
+ int cel_igni = ...;
+ int cel_obj = ...;
  
 
  
-
+ dvar boolean x[1..n];
+ dvar int t[1..n];
  
- // Variáveis de Decisão
- dvar int x[1..n][1..n]; // numero de caminhos no nodo ij  (???)
- dvar int y[1..n]; // 1 se nodo i tem recurso, 0 c.c.
+ maximize t[cel_obj];
  
- // Função Objetivo: MAXIMIZAR OS TEMPOS ENTRE OS NODOS DOS CAMINHOS ENTRE IG E PROT, EM QUE O TEMPO É A DIST * DELTA (SE A ORIGEM OU DESTINO TIVEREM UM RECURSO)
- maximize sum(i in 1..n, j in 1..n) ((d[i][j]+delta*y[i]+delta*y[j])*x[i][j]);  // as dist dos arcos aqui poderão ser 99999 ???
- 
- // Sujeito a:
- subject to {
- 	forall(i in 1..n) x[i][i] == 0;
- 	sum(j in 2..n) (x[1][j] - x[j][1]) == n-1;
- 	forall(i in 2..n) sum(j in 1..n) (x[i][j] - x[j][i]) == -1;
- 	forall(i in 1..n, j in 1..n) x[i][j] >= 0;
- 	
- 	forall(i in 1..n) y[i]<=1; // como juntar estas duas?
- 	forall(i in 1..n) y[i]>=0;
- 	sum(i in 1..n) y[i] <= b; // restricao numero de recursos
- } 
+ subject to{
+ 	t[cel_igni] == 0;
+ 	forall(i in 1..n, j in 1..n) t[j] <= t[i] + d[i][j] + delta*x[i];
+ 	sum(i in 1..n) x[i] <= b;
+ 	forall(i in 1..n) t[i] >= 0;
+ }

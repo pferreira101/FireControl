@@ -28,7 +28,7 @@
  dvar int t[1..n][1..n];
  dvar boolean y[1..n][1..n];
  
- minimize sum(s in 1..n, i in 1..n) p[i]*y[s][i];
+ minimize sum(s in 1..n, i in 1..n) p[s]*y[s][i];
  
  subject to{
  	forall(s in 1..n) t[s][s] == 0;

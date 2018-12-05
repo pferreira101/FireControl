@@ -15,7 +15,7 @@
  
  subject to {
  	x[1] == 0;
- 	forall(i in 1..n, j in 2..n) x[j] - x[i] <= d[i][j];
+ 	forall(i in 1..n, j in 2..n) x[j] <= x[i] + d[i][j];
  	forall(i in 1..n) x[i] >= 0;
  } 
  
