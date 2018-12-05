@@ -9,8 +9,8 @@
  //a from SheetRead(sheet, "Questao1!a");
  //d from SheetRead(sheet, "Questao1!dist");
  
- delta from SheetRead(sheet, "Questao2!delta");
- b from SheetRead(sheet, "Questao2!b");
+ //delta from SheetRead(sheet, "Questao2!delta");
+ //b from SheetRead(sheet, "Questao2!b");
  cel_igni from SheetRead(sheet,"Questao2!ig");
  cel_obj from SheetRead(sheet,"Questao2!prot");
  
@@ -21,4 +21,9 @@
  sul from SheetRead(sheet1, "Questao1!s");
  oeste from SheetRead(sheet1, "Questao1!o");
  
- //r to SheetWrite(sheet, "Questao2!rec");
+ b from SheetRead(sheet, "Questao3!b");
+ delta from SheetRead(sheet, "Questao3!delta");
+ p_aux from SheetRead(sheet1, "Questao3!p");
+ tmax from SheetRead(sheet, "Questao3!tmax");
+ 
+

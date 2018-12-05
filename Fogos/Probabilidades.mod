@@ -33,6 +33,6 @@
  subject to{
  	forall(s in 1..n) t[s][s] == 0;
  	forall(s in 1..n, i in 1..n, j in 1..n) t[s][j] <= t[s][i] + d[i][j] + delta*x[i];
- 	forall(s in 1..n, i in 1..n) y[s][i] * tmax >= tmax - t[s][i];
+ 	forall(s in 1..n, i in 1..n) y[s][i] >= (tmax - t[s][i])/tmax;
  	sum(i in 1..n) x[i] <= b;
  }
