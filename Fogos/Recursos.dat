@@ -5,25 +5,15 @@
  *********************************************/
 
  SheetConnection sheet("Fogos.xlsx");
- 
- //a from SheetRead(sheet, "Questao1!a");
- //d from SheetRead(sheet, "Questao1!dist");
- 
- //delta from SheetRead(sheet, "Questao2!delta");
- //b from SheetRead(sheet, "Questao2!b");
- cel_igni from SheetRead(sheet,"Questao2!ig");
- cel_obj from SheetRead(sheet,"Questao2!prot");
- 
- 
- SheetConnection sheet1("a.xlsx");
- norte from SheetRead(sheet1, "Questao1!n");
- este from SheetRead(sheet1, "Questao1!e");
- sul from SheetRead(sheet1, "Questao1!s");
- oeste from SheetRead(sheet1, "Questao1!o");
- 
- b from SheetRead(sheet, "Questao3!b");
- delta from SheetRead(sheet, "Questao3!delta");
- p_aux from SheetRead(sheet1, "Questao3!p");
- tmax from SheetRead(sheet, "Questao3!tmax");
- 
 
+ a from SheetRead(sheet, "Dados!a");
+ d from SheetRead(sheet, "Distancias!dist");
+ 
+ delta from SheetRead(sheet, "Q2!delta");
+ b from SheetRead(sheet, "Q2!b");
+ ignicao from SheetRead(sheet, "Q2!ig");
+ objetivo from SheetRead(sheet, "Q2!prot");
+ 
+ x to SheetWrite(sheet, "Q2!x");
+ t to SheetWrite(sheet, "Q2!t");
+ 

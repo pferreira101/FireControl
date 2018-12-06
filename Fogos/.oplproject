@@ -33,6 +33,18 @@
 			<ref name="Probabilidades.mod" type="model">
 			</ref>
 		</config>
+		<config default="false" name="0 - Preload" category="opl">
+			<ref name="Preload.mod" type="model">
+			</ref>
+			<ref name="Preload.dat" type="data">
+			</ref>
+		</config>
+		<config default="false" name="5 - Teste" category="opl">
+			<ref name="Teste.mod" type="model">
+			</ref>
+			<ref name="Teste.dat" type="data">
+			</ref>
+		</config>
 	</configs>
 	
 </project>

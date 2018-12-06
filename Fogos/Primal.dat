@@ -6,10 +6,7 @@
 
  SheetConnection sheet("Fogos.xlsx");
  
- a from SheetRead(sheet, "Questao1!a");
- norte from SheetRead(sheet, "Questao1!norte");
- este from SheetRead(sheet, "Questao1!este");
- sul from SheetRead(sheet, "Questao1!sul");
- oeste from SheetRead(sheet, "Questao1!oeste");
+ a from SheetRead(sheet, "Dados!a");
+ d from SheetRead(sheet, "Distancias!dist");
  
- d to SheetWrite(sheet, "Questao1!dist");
+ x to SheetWrite(sheet, "Q1Primal!x");

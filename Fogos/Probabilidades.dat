@@ -6,10 +6,14 @@
 
  SheetConnection sheet("Fogos.xlsx");
  
- a from SheetRead(sheet, "Questao1!a");
- d from SheetRead(sheet, "Questao1!dist");
+ a from SheetRead(sheet, "Dados!a");
+ d from SheetRead(sheet, "Distancias!dist");
   
- b from SheetRead(sheet, "Questao3!b");
- delta from SheetRead(sheet, "Questao3!delta");
- p_aux from SheetRead(sheet, "Questao3!p");
- tmax from SheetRead(sheet, "Questao3!tmax");
+ b from SheetRead(sheet, "Q3!b");
+ delta from SheetRead(sheet, "Q3!delta");
+ p_aux from SheetRead(sheet, "Q3!p");
+ tmax from SheetRead(sheet, "Q3!tmax");
+ 
+ x to SheetWrite(sheet, "Q3!x");
+ y to SheetWrite(sheet, "Q3!y");
+ t to SheetWrite(sheet, "Q3!t");

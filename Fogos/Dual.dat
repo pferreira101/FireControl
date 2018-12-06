@@ -6,5 +6,7 @@
 
  SheetConnection sheet("Fogos.xlsx");
  
- a from SheetRead(sheet, "Questao1!a");
- d from SheetRead(sheet, "Questao1!dist");
+ a from SheetRead(sheet, "Dados!a");
+ d from SheetRead(sheet, "Distancias!dist");
+ 
+ x to SheetWrite(sheet, "Q1Dual!x");

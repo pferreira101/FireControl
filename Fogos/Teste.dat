@@ -1,0 +1,16 @@
+/*********************************************
+ * OPL 12.8.0.0 Data
+ * Author: Pedro
+ * Creation Date: Dec 6, 2018 at 9:20:26 PM
+ *********************************************/
+
+ SheetConnection sheet("Teste.xlsx");
+ 
+ norte from SheetRead(sheet, "Dados!n");
+ este from SheetRead(sheet, "Dados!e");
+ sul from SheetRead(sheet, "Dados!s");
+ oeste from SheetRead(sheet, "Dados!o");
+ 
+ // 4 -------------------------------
+ 
+ p_aux from SheetRead(sheet, "Q3!p");

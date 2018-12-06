@@ -18,15 +18,3 @@
  	forall(i in 1..n, j in 2..n) x[j] <= x[i] + d[i][j];
  	forall(i in 1..n) x[i] >= 0;
  } 
- 
- /*
- 
- ESTA ERA A RESOLUÇÃO QUE EU TINHA.  A QUE FUNCIONA LI NUM ARTIGO 
- minimize sum(i in 1..n) x[i];
- 
- subject to{
- 	forall(j in 2..n) x[j] >= d[1][j];
- 	forall(i in 1..n, j in 2..n) x[j] >= d[i][j] + x[i];
- 	forall(i in 1..n) x[i] >= 0;
- } 	
- */
