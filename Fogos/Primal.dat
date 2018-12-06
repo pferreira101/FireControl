@@ -1,12 +1,6 @@
-/*********************************************
- * OPL 12.8.0.0 Data
- * Author: Pedro
- * Creation Date: Nov 27, 2018 at 6:56:55 PM
- *********************************************/
-
  SheetConnection sheet("Fogos.xlsx");
  
  a from SheetRead(sheet, "Dados!a");
- d from SheetRead(sheet, "Distancias!dist");
+ c from SheetRead(sheet, "Distancias!dist");
  
  x to SheetWrite(sheet, "Q1Primal!x");

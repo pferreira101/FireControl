@@ -76,46 +76,52 @@
 \subsection*{a)}
 \textbf{Parâmetros:}  \\
 \begin{center}
-t\textsubscript{ij} -tempo que o fogo demora a chegar da célula i à célula j\\
+n - número de nodos existentes \\
+c\textsubscript{ij} - tempo de propagação no arco ij\\
 i=1,...,n e j=1,...n \\
 \end{center}
 \textbf{Variáveis de Decisão:} \\
 \begin{center}
-x\textsubscript{ij} - número de caminhos a que o arco que une as células i e j pertence\\
+x\textsubscript{ij} - número de caminhos a que o arco que une os nodos i e j pertence\\
 i=1,...,n e j=1,...n \\
 \end{center}
 \textbf{Função Objetivo:} \\
-$$min \ Z = \sum_{i=1}^{n} \sum_{j=1}^{n} d_i_jx_i_j$$
+$$min \ Z = \sum_{i=1}^{n} \sum_{j=1}^{n} c_i_jx_i_j$$
 \textbf{Sujeito a:}
 \begin{enumerate}[(i)]
 \item $$x_i_i = 0, \forall i \in 1,...,n$$
 \item $$\sum_{j=2}^{n} (x_1_j - x_j_1) = n-1$$
 \item $$\sum_{j=1}^{n} (x_i_j - x_j_i) = -1, \forall i \in 2,...,n $$
 \item $$x_i_j \geq 0, \forall i \in 1,...,n , \forall j \in 1,...,n$$
-\end{enumerate}
+\end{enumerate}\\
 
+
+Neste modelo, a função objetivo procura que o tempo de chegada do fogo a cada um dos nodos seja o mínimo possível pois serão considerados os arcos de menor custo. Uma vez que a variável de decisão representa o número de caminhos a que o arco ij pertence, o conjunto dos arcos com origem no nodo de ignição, ou seja, no nodo 1,  têm de necessariamente pertencer a todos os caminhos existentes. A restrição (ii) expressa esta condição. Nos restantes nodos, o conjunto dos arcos com origem num determinado nodo i pertencem a menos um caminho que o conjunto dos nodos que chegam a i. Esta situação é definida pela restrição (iii). A equação (i) representa o facto de não existirem arcos cuja origem e destino sejam o mesmo nodo. Por fim, a restrição (iv) estabelece a não negatividade das variáveis.\\
 \textcolor{red}{Falta exemplificar com a instância}
 
 \subsection*{b)}
 
 \textbf{Parâmetros:}  \\
 \begin{center}
-t\textsubscript{ij} - tempo que o fogo demora a chegar da célula i à célula j \\
+n - número de nodos existentes \\
+c\textsubscript{ij} - tempo de propagação no arco ij\\
 i=1,...,n e j=1,...n \\
 \end{center}
 \textbf{Variáveis de Decisão:} \\
 \begin{center}
-t\_chegada\textsubscript{i} - tempo total que o fogo demora a chegar à celula i \\
+t\textsubscript{i} - tempo decorrido desde a ignição aquando da chegada do fogo ao nodo i\\
 i=1,...,n\\
 \end{center}
 \textbf{Função Objetivo:} \\
-$$max \ Z = \sum_{i=1}^{n} t\_chegada_i$$
+$$max \ Z = \sum_{i=1}^{n} t_i$$
 \textbf{Sujeito a:}
 \begin{enumerate}[(i)]
-\item $$t\_chegada_i = 0$$
-\item $$t\_chegada_j \leq t\_chegada_i + t_i_j, \forall i \in 1,...,n , \forall j \in 2,...,n$$
-\item $$t\_chegada_i \geq 0, \forall i \in 1,...,n$$
+\item $$t_1 = 0$$
+\item $$t_j \leq t_i + t_i_j, \forall i \in 1,...,n , \forall j \in 2,...,n$$
+\item $$t_i \geq 0, \forall i \in 1,...,n$$
 \end{enumerate}
+
+Enquanto que o modelo primal tinha em consideração o número de caminhos a que um determinado arco pertencia, no modelo duas a variável de decisão representa o momento em que o fogo atinge um determinado nodo. Considerando a ignição no nodo 1, surge a restrição (i). Em conjunto com a função objetivo, a restrição (ii) garante que o tempo de chegada a cada nodo é o mínimo possível, tendo em conta a formulação do problema. Por um lado, queremos maximizar o tempo de chegada a cada nodo (função objetivo), por outro, pela restrição (ii), garante-se que o momento de chegada a um nodo j não é anterior ao menor dos tempos chegada ao conjunto dos nodos adjacentes a j, somado do custo de propagação para este. Por fim, a restrição (iii) estabelece a não negatividade das variáveis. 
 
 \textcolor{red}{Falta exemplificar com a instância}
 
@@ -129,32 +135,34 @@ $$max \ Z = \sum_{i=1}^{n} t\_chegada_i$$
 \subsection*{a)}
 \textbf{Parâmetros:}  \\
 \begin{center}
-t\textsubscript{ij} - tempo que o fogo demora a chegar da célula i à célula j \\
+n - número de nodos existentes \\
+c\textsubscript{ij} - tempo de propagação no arco ij\\
 i=1,...,n e j=1,...n \\
 b - número de recursos disponíveis \\
 $\Delta$ - constante de retardação \\
-cel\_igni - célula de ignição do fogo \\
-cel\_obj - célula a que se pretende atrasar a chegada do fogo
+ignição - célula de ignição do fogo \\
+objetivo - célula a que se pretende atrasar a chegada do fogo
 \end{center}
 
 \textbf{Variáveis de Decisão:} \\
 \begin{center}
-x\textsubscript{i} = \begin{cases} 1, & \mbox{se a célula} \ i \ \mbox{tem recurso de proteção} \\ 0, & \mbox{caso contrário}\end{cases} \\
+x\textsubscript{i} = \begin{cases} 1, & \mbox{se é aplicado um recurso de proteção na célula i}  \\  0, & \mbox{caso contrário} \end{cases} \\
 i=1,...,n \\
-t\_chegada\textsubscript{i} - tempo que o fogo demora a chegar à celula i \\
+t\textsubscript{i} - tempo decorrido desde a ignição aquando da chegada do fogo ao nodo i \\
 i=1,...,n \\
 \end{center}
 \textbf{Função Objetivo:} \\
-$$max \ Z = t\_chegada\textsubscript{$cel\_obj$}$$ \\
-\textcolor{red}{justificação} \\
+$$max \ Z = t\textsubscript{$objetivo$}$$ \\
+
 \textbf{Sujeito a:}
 \begin{enumerate}[(i)]
-\item $$t\textsubscript{cel\_igni} = 0$$ \textcolor{red}{justificação}
-\item $$t\_chegada_j \leq t\_chegada_i + t_i_j + \Delta x_i, \forall i \in 1,...n, \forall j \in 1,...,n$$ \textcolor{red}{justificação}
-\item $$\sum_{i=1}^{n} x_i \leq b$$ \textcolor{red}{justificação}
-\item $$t\_chegada_i \geq 0, \forall i \in 1,...,n$$ \textcolor{red}{justificação}
+\item $$t\textsubscript{ignição} = 0$$ 
+\item $$t_j \leq t_i + t_i_j + \Delta x_i, \forall i \in 1,...n, \forall j \in 1,...,n$$ 
+\item $$\sum_{i=1}^{n} x_i \leq b$$ 
+\item $$t_i \geq 0, \forall i \in 1,...,n$$ 
 \end{enumerate}
-
+O objetivo do problema é escolher onde aplicar recursos de proteção, que atrasam a propagação do fogo, de forma a retardar o máximo possível o momento de chegada do fogo a um determinado nodo (nodo objetivo). Para alcançar esse fim, consideramos como variável de decisão o tempo de chegada do fogo a cada nodo. Logo, a função objetivo procura maximizar o tempo de chegada ao nodo objetivo. Uma vez que a célula de ignição é um parâmetro do problema e não um valor fixo, temos de associar matematicamente o início do fogo ao nodo de ignição. A restrição (i) garante essa associação. A restrição (ii), em conjunto com a função objetivo, assegura a correta aplicação dos recursos de proteção, em função da célula que queremos proteger. Uma vez que o tempo de chegada do fogo a um certo nodo é definido por recorrência, isto é, o momento de chegada a um nodo j defni-se à custa do tempo de chegada a outro nodo e assim sucessivamente até alcançarmos o nodo de ignição, único que se define a si mesmo, o modelo optará por colocar proteções em células que façam parte do caminho percorrido pelo fogo até ao nodo que queremos proteger, maximizando o tempo de chegada a este. A restrição(iii) limita o número de recursos aplicados e a restrição (iv) define a não negatividade das variáveis.
+A função objetivo traduz a finalidade pretendida. 
 \subsection*{b)}
 \textcolor{red}{Para a instância de sete por sete células e os tempos de propagação em anexo,
 obtenha uma solução através do IBM ILOG CPLEX Optimization Studio (link para
@@ -171,32 +179,36 @@ função do número de recursos usados. Interprete e comente.}
 \subsection*{a)}
 \textbf{Parâmetros:}  \\
 \begin{center}
-t\textsubscript{max} - fim do intervalo de tempo\\
+n - número de nodos existentes \\
+c\textsubscript{ij} - tempo de propagação no arco ij\\
+i=1,...,n e j=1,...n \\
+t\textsubscript{max} - intervalo de tempo considerado\\
 b - número de recursos disponíveis \\
 $\Delta$ - constante de retardação \\
-p\textsubscript{s} - probabilidade de ignição na célula s
+p\textsubscript{s} - probabilidade de ignição na célula s\\
+s=1,...n \\
 \end{center}
 \textbf{Variáveis de Decisão:} \\
 
 \begin{center}
-x\textsubscript{i} = \begin{cases} 1, & \mbox{se a célula} \ i \ \mbox{tem recurso de proteção} \\ 0, & \mbox{caso contrário}\end{cases} \\
+x\textsubscript{i} = \begin{cases} 1, & \mbox{se é aplicado um recurso de proteção no nodo i}\\ 0, & \mbox{caso contrário}\end{cases} \\
 i=1,...,n \\
-t\textsubscript{ij} - tempo que o fogo demora a chegar da célula i à celula j \\
-i=1,...,n e j=1,...,n \\
-y\textsubscript{si} = \begin{cases} 1, & \mbox{se o fogo com início na célula} \ s \ \mbox{chega a} \ i \  \mbox{num tempo inferior a t\textsubscript{max}} \\ 0, & \mbox{caso contrário}\end{cases} \\
+t\textsubscript{sj} - tempo decorrido aquando da chegada de um fogo, com origem em s, ao nodo i\\
+s=1,...,n e i=1,...,n \\
+y\textsubscript{si} = \begin{cases} 1, & \mbox{se o fogo com início no nodo} \ s \ \mbox{chega a} \ i \  \mbox{num tempo inferior a t\textsubscript{max}} \\ 0, & \mbox{caso contrário}\end{cases} \\
 s=1,...,n e i=1,...,n
 \end{center}
 
 \textbf{Função Objetivo:} \\
 $$min \ Z = \sum_{s=1}^{n} \sum_{i=1}^{n} p_sy_s_i$$ \\
-\textcolor{red}{justificação} \\
+
 
 \textbf{Sujeito a:}
 \begin{enumerate}[(i)]
-\item $$t\textsubscript{ss} = 0, \forall s \in 1,...,n$$ \textcolor{red}{justificação}
-\item $$t_s_j \leq t_s_i + d_i_j + \Delta x_i, \forall s \in 1,...n, \forall i \in 1,...,n , \forall j \in 1,...,n$$ \textcolor{red}{justificação}
-\item $$y_s_i \geq \frac{ t\textsubscript{max}-t_s_i}{t\textsubscript{max}}, \forall s \in 1,...,n, \forall i \in 1,...,n $$ \textcolor{red}{justificação}
-\item $$\sum_{i=1}^{n} x_i \leq b$$ \textcolor{red}{justificação}
+\item $$t\textsubscript{ss} = 0, \forall s \in 1,...,n$$ 
+\item $$t_s_j \leq t_s_i + d_i_j + \Delta x_i, \forall s \in 1,...n, \forall i \in 1,...,n , \forall j \in 1,...,n$$ 
+\item $$y_s_i \geq \frac{ t\textsubscript{max}-t_s_i}{t\textsubscript{max}}, \forall s \in 1,...,n, \forall i \in 1,...,n $$ 
+\item $$\sum_{i=1}^{n} x_i \leq b$$ 
 \end{enumerate}
 
 \subsection*{b)}

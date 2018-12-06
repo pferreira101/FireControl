@@ -1,12 +1,6 @@
-/*********************************************
- * OPL 12.8.0.0 Model
- * Author: Pedro
- * Creation Date: Dec 4, 2018 at 1:40:40 PM
- *********************************************/
-
  int a = ...;
  int n = a*a;
- int d[1..n][1..n] = ...;
+ int c[1..n][1..n] = ...;
  
   
  int b = ...;
@@ -32,7 +26,7 @@
  
  subject to{
  	forall(s in 1..n) t[s][s] == 0;
- 	forall(s in 1..n, i in 1..n, j in 1..n) t[s][j] <= t[s][i] + d[i][j] + delta*x[i];
+ 	forall(s in 1..n, i in 1..n, j in 1..n) t[s][j] <= t[s][i] + c[i][j] + delta*x[i];
  	forall(s in 1..n, i in 1..n) y[s][i] >= (tmax - t[s][i])/tmax;
  	sum(i in 1..n) x[i] <= b;
  }

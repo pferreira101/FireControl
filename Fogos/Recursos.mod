@@ -1,12 +1,6 @@
-/*********************************************
- * OPL 12.8.0.0 Model
- * Author: perei
- * Creation Date: 03/12/2018 at 15:43:39
- *********************************************/
- 
  int a = ...;
  int n = a*a;
- int d[1..n][1..n] = ...;
+ int c[1..n][1..n] = ...;
 
  int b = ...;
  int delta = ...;
@@ -21,7 +15,7 @@
  
  subject to{
  	t[ignicao] == 0;
- 	forall(i in 1..n, j in 1..n) t[j] <= t[i] + d[i][j] + delta*x[i];
+ 	forall(i in 1..n, j in 1..n) t[j] <= t[i] + c[i][j] + delta*x[i];
  	sum(i in 1..n) x[i] <= b;
  	forall(i in 1..n) t[i] >= 0;
  }

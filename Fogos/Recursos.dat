@@ -1,16 +1,10 @@
-/*********************************************
- * OPL 12.8.0.0 Data
- * Author: perei
- * Creation Date: 03/12/2018 at 15:43:52
- *********************************************/
-
  SheetConnection sheet("Fogos.xlsx");
 
  a from SheetRead(sheet, "Dados!a");
  d from SheetRead(sheet, "Distancias!dist");
  
  delta from SheetRead(sheet, "Q2!delta");
- b from SheetRead(sheet, "Q2!b");
+ c from SheetRead(sheet, "Q2!b");
  ignicao from SheetRead(sheet, "Q2!ig");
  objetivo from SheetRead(sheet, "Q2!prot");
  
