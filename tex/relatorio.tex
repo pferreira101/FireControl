@@ -75,12 +75,12 @@
 \subsection*{a)}
 \textbf{Parâmetros:}  \\
 \begin{center}
-d\textsubscript{ij} - distância entre nodo i e j \\
+d\textsubscript{ij} - distância entre as células i e j \\
 i=1,...,n e j=1,...n \\
 \end{center}
 \textbf{Variáveis de Decisão:} \\
 \begin{center}
-x\textsubscript{ij} - número de caminhos existentes entre i e j \\
+x\textsubscript{ij} - número de caminhos existentes entre as células i e j \\
 i=1,...,n e j=1,...n \\
 \end{center}
 \textbf{Função Objetivo:} \\
@@ -97,12 +97,12 @@ $$x_i_j \geq 0, \forall i \in 1,...,n , \forall j \in 1,...,n$$
 
 \textbf{Parâmetros:}  \\
 \begin{center}
-d\textsubscript{ij} - distância entre nodo i e j \\
+d\textsubscript{ij} - distância entre as células i e j \\
 i=1,...,n e j=1,...n \\
 \end{center}
 \textbf{Variáveis de Decisão:} \\
 \begin{center}
-x\textsubscript{i} - tempo que o fogo demora a chegar ao nodo i \\
+x\textsubscript{i} - tempo que o fogo demora a chegar à celula i \\
 i=1,...,n\\
 \end{center}
 \textbf{Função Objetivo:} \\
@@ -122,12 +122,76 @@ $$x_i \geq 0, \forall i \in 1,...,n$$
 
 \section*{Questão 2}
 \subsection*{a)}
+\textbf{Parâmetros:}  \\
+\begin{center}
+d\textsubscript{ij} - distância entre as células i e j \\
+i=1,...,n e j=1,...n \\
+b - número de recursos disponíveis \\
+$\Delta$ - constante de retardação \\
+cel\_igni - célula de ignição do fogo \\
+cel\_obj - célula a que se pretende atrasar a chegada do fogo
+\end{center}
+
+\textbf{Variáveis de Decisão:} \\
+\begin{center}
+x\textsubscript{i} = \begin{cases} 1, & \mbox{se a célula} \ i \ \mbox{tem recurso de proteção} \\ 0, & \mbox{caso contrário}\end{cases} \\
+t\textsubscript{i} - tempo que o fogo demora a chegar à celula i
+\end{center}
+\textbf{Função Objetivo:} \\
+$$max \ Z = t\textsubscript{$cel\_obj$}$$ \\
+\textcolor{red}{justificação} \\
+\textbf{Sujeito a:}
+$$t\textsubscript{cel\_igni} = 0$$ \textcolor{red}{justificação}
+$$t_j \leq t_i + d_i_j + \Delta x_i, \forall i \in 1,...n, \forall j \in 1,...,n$$ \textcolor{red}{justificação}
+$$\sum_{i=1}^{n} x_i \leq b$$ \textcolor{red}{justificação}
+$$t_i \geq 0, \forall i \in 1,...,n$$ \textcolor{red}{justificação}
+
 \subsection*{b)}
+\textcolor{red}{Para a instância de sete por sete células e os tempos de propagação em anexo,
+obtenha uma solução através do IBM ILOG CPLEX Optimization Studio (link para
+versão gratuita no final do enunciado) com uma ignição na célula (1,1) e
+pretendendo-se proteger a célula (7,7). Represente a solução de forma adequada e
+interprete-a.}
+
 \subsection*{c)}
+\textcolor{red}{Represente graficamente o tempo de chegada do fogo à célula de protecção em
+função do número de recursos usados. Interprete e comente.}
 
 \section*{Questão 3}
+
 \subsection*{a)}
+\textbf{Parâmetros:}  \\
+\begin{center}
+t\textsubscript{max} - fim do intervalo de tempo\\
+b - número de recursos disponíveis \\
+$\Delta$ - constante de retardação \\
+p\textsubscript{s} - probabilidade de ignição na célula s
+\end{center}
+\textbf{Variáveis de Decisão:} \\
+
+\begin{center}
+x\textsubscript{i} = \begin{cases} 1, & \mbox{se a célula} \ i \ \mbox{tem recurso de proteção} \\ 0, & \mbox{caso contrário}\end{cases} \\
+t\textsubscript{ij} - tempo que o fogo demora a chegar da célula i à celula j \\
+y\textsubscript{si} = \begin{cases} 1, & \mbox{se o fogo com início na célula} \ s \ \mbox{chega a} \ i \  \mbox{num tempo inferior a t\textsubscript{max}} \\ 0, & \mbox{caso contrário}\end{cases} \\
+\end{center}
+
+\textbf{Função Objetivo:} \\
+$$min \ Z = \sum_{s=1}^{n} \sum_{i=1}^{n} p_sy_s_i$$ \\
+\textcolor{red}{justificação} \\
+\textbf{Sujeito a:}
+$$t\textsubscript{ss} = 0, \forall s \in 1,...,n$$ \textcolor{red}{justificação}
+$$t_s_j \leq t_s_i + d_i_j + \Delta x_i, \forall s \in 1,...n, \forall i \in 1,...,n , \forall j \in 1,...,n$$ \textcolor{red}{justificação}
+$$y_s_i \geq \frac{ t\textsubscript{max}-t_s_i}{t\textsubscript{max}}, \forall s \in 1,...,n, \forall i \in 1,...,n $$ \textcolor{red}{justificação}
+$$\sum_{i=1}^{n} x_i \leq b$$ \textcolor{red}{justificação}
+
 \subsection*{b)}
+\textcolor{red}{Para a instância em anexo, obtenha uma solução através do IBM ILOG CPLEX
+Optimization Studio com probabilidade de ignição na célula (i, j) dada por (14 - i -
+j)/500 e intervalo de 12 unidades de tempo. Represente a solução de forma adequada
+e interprete-a.}
+
 \subsection*{c)}
+\textcolor{red}{Represente graficamente o valor esperado da área ardida em função do intervalo
+de tempo considerado. Interprete e comente.}
 
 \end{document}
