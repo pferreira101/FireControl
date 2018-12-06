@@ -21,6 +21,7 @@
 %   read geometry.pdf for detailed page layout information
 
 \usepackage{graphicx} % support the \includegraphics command and options
+\usepackage{enumerate}  
 
 % \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
 
@@ -75,21 +76,23 @@
 \subsection*{a)}
 \textbf{Parâmetros:}  \\
 \begin{center}
-d\textsubscript{ij} - distância entre as células i e j \\
+t\textsubscript{ij} -tempo que o fogo demora a chegar da célula i à célula j\\
 i=1,...,n e j=1,...n \\
 \end{center}
 \textbf{Variáveis de Decisão:} \\
 \begin{center}
-x\textsubscript{ij} - número de caminhos existentes entre as células i e j \\
+x\textsubscript{ij} - número de caminhos a que o arco que une as células i e j pertence\\
 i=1,...,n e j=1,...n \\
 \end{center}
 \textbf{Função Objetivo:} \\
 $$min \ Z = \sum_{i=1}^{n} \sum_{j=1}^{n} d_i_jx_i_j$$
 \textbf{Sujeito a:}
-$$x_i_i = 0, \forall i \in 1,...,n$$
-$$\sum_{j=2}^{n} (x_1_j - x_j_1) = n-1$$
-$$\sum_{j=1}^{n} (x_i_j - x_j_i) = -1, \forall i \in 2,...,n $$
-$$x_i_j \geq 0, \forall i \in 1,...,n , \forall j \in 1,...,n$$
+\begin{enumerate}[(i)]
+\item $$x_i_i = 0, \forall i \in 1,...,n$$
+\item $$\sum_{j=2}^{n} (x_1_j - x_j_1) = n-1$$
+\item $$\sum_{j=1}^{n} (x_i_j - x_j_i) = -1, \forall i \in 2,...,n $$
+\item $$x_i_j \geq 0, \forall i \in 1,...,n , \forall j \in 1,...,n$$
+\end{enumerate}
 
 \textcolor{red}{Falta exemplificar com a instância}
 
@@ -97,20 +100,22 @@ $$x_i_j \geq 0, \forall i \in 1,...,n , \forall j \in 1,...,n$$
 
 \textbf{Parâmetros:}  \\
 \begin{center}
-d\textsubscript{ij} - distância entre as células i e j \\
+t\textsubscript{ij} - tempo que o fogo demora a chegar da célula i à célula j \\
 i=1,...,n e j=1,...n \\
 \end{center}
 \textbf{Variáveis de Decisão:} \\
 \begin{center}
-x\textsubscript{i} - tempo que o fogo demora a chegar à celula i \\
+t\_chegada\textsubscript{i} - tempo total que o fogo demora a chegar à celula i \\
 i=1,...,n\\
 \end{center}
 \textbf{Função Objetivo:} \\
-$$max \ Z = \sum_{i=1}^{n} x_i$$
+$$max \ Z = \sum_{i=1}^{n} t\_chegada_i$$
 \textbf{Sujeito a:}
-$$x_1 = 0$$
-$$x_j \leq x_i + d_i_j, \forall i \in 1,...,n , \forall j \in 2,...,n$$
-$$x_i \geq 0, \forall i \in 1,...,n$$
+\begin{enumerate}[(i)]
+\item $$t\_chegada_i = 0$$
+\item $$t\_chegada_j \leq t\_chegada_i + t_i_j, \forall i \in 1,...,n , \forall j \in 2,...,n$$
+\item $$t\_chegada_i \geq 0, \forall i \in 1,...,n$$
+\end{enumerate}
 
 \textcolor{red}{Falta exemplificar com a instância}
 
@@ -124,7 +129,7 @@ $$x_i \geq 0, \forall i \in 1,...,n$$
 \subsection*{a)}
 \textbf{Parâmetros:}  \\
 \begin{center}
-d\textsubscript{ij} - distância entre as células i e j \\
+t\textsubscript{ij} - tempo que o fogo demora a chegar da célula i à célula j \\
 i=1,...,n e j=1,...n \\
 b - número de recursos disponíveis \\
 $\Delta$ - constante de retardação \\
@@ -135,16 +140,20 @@ cel\_obj - célula a que se pretende atrasar a chegada do fogo
 \textbf{Variáveis de Decisão:} \\
 \begin{center}
 x\textsubscript{i} = \begin{cases} 1, & \mbox{se a célula} \ i \ \mbox{tem recurso de proteção} \\ 0, & \mbox{caso contrário}\end{cases} \\
-t\textsubscript{i} - tempo que o fogo demora a chegar à celula i
+i=1,...,n \\
+t\_chegada\textsubscript{i} - tempo que o fogo demora a chegar à celula i \\
+i=1,...,n \\
 \end{center}
 \textbf{Função Objetivo:} \\
-$$max \ Z = t\textsubscript{$cel\_obj$}$$ \\
+$$max \ Z = t\_chegada\textsubscript{$cel\_obj$}$$ \\
 \textcolor{red}{justificação} \\
 \textbf{Sujeito a:}
-$$t\textsubscript{cel\_igni} = 0$$ \textcolor{red}{justificação}
-$$t_j \leq t_i + d_i_j + \Delta x_i, \forall i \in 1,...n, \forall j \in 1,...,n$$ \textcolor{red}{justificação}
-$$\sum_{i=1}^{n} x_i \leq b$$ \textcolor{red}{justificação}
-$$t_i \geq 0, \forall i \in 1,...,n$$ \textcolor{red}{justificação}
+\begin{enumerate}[(i)]
+\item $$t\textsubscript{cel\_igni} = 0$$ \textcolor{red}{justificação}
+\item $$t\_chegada_j \leq t\_chegada_i + t_i_j + \Delta x_i, \forall i \in 1,...n, \forall j \in 1,...,n$$ \textcolor{red}{justificação}
+\item $$\sum_{i=1}^{n} x_i \leq b$$ \textcolor{red}{justificação}
+\item $$t\_chegada_i \geq 0, \forall i \in 1,...,n$$ \textcolor{red}{justificação}
+\end{enumerate}
 
 \subsection*{b)}
 \textcolor{red}{Para a instância de sete por sete células e os tempos de propagação em anexo,
@@ -171,18 +180,24 @@ p\textsubscript{s} - probabilidade de ignição na célula s
 
 \begin{center}
 x\textsubscript{i} = \begin{cases} 1, & \mbox{se a célula} \ i \ \mbox{tem recurso de proteção} \\ 0, & \mbox{caso contrário}\end{cases} \\
+i=1,...,n \\
 t\textsubscript{ij} - tempo que o fogo demora a chegar da célula i à celula j \\
+i=1,...,n e j=1,...,n \\
 y\textsubscript{si} = \begin{cases} 1, & \mbox{se o fogo com início na célula} \ s \ \mbox{chega a} \ i \  \mbox{num tempo inferior a t\textsubscript{max}} \\ 0, & \mbox{caso contrário}\end{cases} \\
+s=1,...,n e i=1,...,n
 \end{center}
 
 \textbf{Função Objetivo:} \\
 $$min \ Z = \sum_{s=1}^{n} \sum_{i=1}^{n} p_sy_s_i$$ \\
 \textcolor{red}{justificação} \\
+
 \textbf{Sujeito a:}
-$$t\textsubscript{ss} = 0, \forall s \in 1,...,n$$ \textcolor{red}{justificação}
-$$t_s_j \leq t_s_i + d_i_j + \Delta x_i, \forall s \in 1,...n, \forall i \in 1,...,n , \forall j \in 1,...,n$$ \textcolor{red}{justificação}
-$$y_s_i \geq \frac{ t\textsubscript{max}-t_s_i}{t\textsubscript{max}}, \forall s \in 1,...,n, \forall i \in 1,...,n $$ \textcolor{red}{justificação}
-$$\sum_{i=1}^{n} x_i \leq b$$ \textcolor{red}{justificação}
+\begin{enumerate}[(i)]
+\item $$t\textsubscript{ss} = 0, \forall s \in 1,...,n$$ \textcolor{red}{justificação}
+\item $$t_s_j \leq t_s_i + d_i_j + \Delta x_i, \forall s \in 1,...n, \forall i \in 1,...,n , \forall j \in 1,...,n$$ \textcolor{red}{justificação}
+\item $$y_s_i \geq \frac{ t\textsubscript{max}-t_s_i}{t\textsubscript{max}}, \forall s \in 1,...,n, \forall i \in 1,...,n $$ \textcolor{red}{justificação}
+\item $$\sum_{i=1}^{n} x_i \leq b$$ \textcolor{red}{justificação}
+\end{enumerate}
 
 \subsection*{b)}
 \textcolor{red}{Para a instância em anexo, obtenha uma solução através do IBM ILOG CPLEX
