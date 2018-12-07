@@ -1,10 +1,10 @@
  SheetConnection sheet("Fogos.xlsx");
 
  a from SheetRead(sheet, "Dados!a");
- d from SheetRead(sheet, "Distancias!dist");
+ c from SheetRead(sheet, "Distancias!dist");
  
  delta from SheetRead(sheet, "Q2!delta");
- c from SheetRead(sheet, "Q2!b");
+ b from SheetRead(sheet, "Q2!b");
  ignicao from SheetRead(sheet, "Q2!ig");
  objetivo from SheetRead(sheet, "Q2!prot");
  

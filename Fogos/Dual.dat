@@ -3,4 +3,4 @@
  a from SheetRead(sheet, "Dados!a");
  c from SheetRead(sheet, "Distancias!dist");
  
- x to SheetWrite(sheet, "Q1Dual!x");
+ t to SheetWrite(sheet, "Q1Dual!t");

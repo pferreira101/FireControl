@@ -3,7 +3,7 @@
  
  int c[1..n][1..n] = ...;
  
- dvar int t[1..n];
+ dvar float+ t[1..n];
  
  maximize sum(i in 1..n) t[i];
  
