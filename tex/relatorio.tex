@@ -84,14 +84,14 @@ execute {
                   var dv = Opl.ceil(i/a);
                   var resto = i%a;
                   if(resto == 0) resto = a;
-	 		
+
                   if((i-j) == a && dv!=1) d[i][j] = norte[dv][resto];
                   else if((i-j) == -1 && resto!=a) d[i][j] = este[dv][resto];
                   else if((i-j) == -a && dv!=a) d[i][j] = sul[dv][resto];
                   else if((i-j) == 1 && resto!=1) d[i][j] = oeste[dv][resto];
-                  else d[i][j] = 99999; 	
-                  }	
-            }	  
+                  else d[i][j] = 99999;
+                  }
+            }
  }
 \end{verbatim}
 
@@ -123,7 +123,7 @@ $$min \ Z = \sum_{i=1}^{n} \sum_{j=1}^{n} c_i_jX_i_j$$
 
 
 Neste modelo, a função objetivo procura que o tempo de chegada do fogo a cada um dos nodos seja o mínimo possível pois serão considerados os arcos de menor custo. Uma vez que a variável de decisão representa o número de caminhos a que o arco ij pertence, o conjunto dos arcos com origem no nodo de ignição, ou seja, no nodo 1,  têm de necessariamente pertencer a todos os caminhos existentes. A restrição (i) expressa esta condição. Nos restantes nodos, o conjunto dos arcos com origem num determinado nodo i pertencem a menos um caminho que o conjunto dos nodos que chegam a i. Esta situação é definida pela restrição (ii). Por fim, a restrição (iii) estabelece a não negatividade das variáveis.
-Aplicando este modelo geral à instância descrita no anexo do enunciado, temos o seguinte modelo de programação linear: 
+Aplicando este modelo geral à instância descrita no anexo do enunciado, temos o seguinte modelo de programação linear:
 
 \newpage
 
@@ -132,7 +132,7 @@ Aplicando este modelo geral à instância descrita no anexo do enunciado, temos 
 X\textsubscript{ij} - número de caminhos a que o arco que une os nodos i e j pertence\\
 i=1,...,49 e j=1,...49 \\
 \end{center}
-\textbf{Função Objetivo:} 
+\textbf{Função Objetivo:}
 $$Min \ Z = 99999X_1_,_1 + 5X_1_,_2+99999X_1_,_3+...+3X_4_9_,_4_8+99999X_4_9_,_4_9$$
 \textbf{Sujeito a:}
 \begin{enumerate}[(i)]
@@ -143,7 +143,7 @@ $$Min \ Z = 99999X_1_,_1 + 5X_1_,_2+99999X_1_,_3+...+3X_4_9_,_4_8+99999X_4_9_,_4
 
 \subsection*{b)}
 
-\textbf{Parâmetros:} 
+\textbf{Parâmetros:}
 \begin{center}
 n - número de nodos existentes \\
 c\textsubscript{ij} - tempo de propagação no arco ij\\
@@ -154,7 +154,7 @@ i=1,...,n e j=1,...n \\
 T\textsubscript{i} - tempo decorrido desde a ignição aquando da chegada do fogo ao nodo i\\
 i=1,...,n\\
 \end{center}
-\textbf{Função Objetivo:} 
+\textbf{Função Objetivo:}
 $$max \ Z = \sum_{i=1}^{n} T_i$$
 \textbf{Sujeito a:}
 \begin{enumerate}[(i)]
@@ -205,19 +205,18 @@ Solução ótima primal:
 \subsection*{d)}
 Solução ótima primal:
 
-\begin{table}[!htpb]
+\begin{table}[h]
 \centering
-\begin{tabular}{lccccccc}
-i/j                    & \multicolumn{1}{l}{1}            & \multicolumn{1}{l}{2}            & \multicolumn{1}{l}{3}            & \multicolumn{1}{l}{4}            & \multicolumn{1}{l}{5}            & \multicolumn{1}{l}{6}            & \multicolumn{1}{l}{7}            \\ \cline{2-8} 
-\multicolumn{1}{l|}{1} & \multicolumn{1}{c|}{\textbf{0}}  & \multicolumn{1}{c|}{\textbf{5}}  & \multicolumn{1}{c|}{\textbf{10}} & \multicolumn{1}{c|}{\textbf{13}} & \multicolumn{1}{c|}{\textbf{16}} & \multicolumn{1}{c|}{\textbf{19}} & \multicolumn{1}{c|}{\textbf{22}} \\ \cline{2-8} 
-\multicolumn{1}{l|}{2} & \multicolumn{1}{c|}{\textbf{7}}  & \multicolumn{1}{c|}{\textbf{12}} & \multicolumn{1}{c|}{\textbf{16}} & \multicolumn{1}{c|}{\textbf{20}} & \multicolumn{1}{c|}{\textbf{22}} & \multicolumn{1}{c|}{\textbf{25}} & \multicolumn{1}{c|}{\textbf{28}} \\ \cline{2-8} 
-\multicolumn{1}{l|}{3} & \multicolumn{1}{c|}{\textbf{15}} & \multicolumn{1}{c|}{\textbf{18}} & \multicolumn{1}{c|}{\textbf{21}} & \multicolumn{1}{c|}{\textbf{26}} & \multicolumn{1}{c|}{\textbf{28}} & \multicolumn{1}{c|}{\textbf{32}} & \multicolumn{1}{c|}{\textbf{35}} \\ \cline{2-8} 
-\multicolumn{1}{l|}{4} & \multicolumn{1}{c|}{\textbf{21}} & \multicolumn{1}{c|}{\textbf{24}} & \multicolumn{1}{c|}{\textbf{29}} & \multicolumn{1}{c|}{\textbf{32}} & \multicolumn{1}{c|}{\textbf{35}} & \multicolumn{1}{c|}{\textbf{38}} & \multicolumn{1}{c|}{\textbf{42}} \\ \cline{2-8} 
-\multicolumn{1}{l|}{5} & \multicolumn{1}{c|}{\textbf{28}} & \multicolumn{1}{c|}{\textbf{30}} & \multicolumn{1}{c|}{\textbf{35}} & \multicolumn{1}{c|}{\textbf{39}} & \multicolumn{1}{c|}{\textbf{42}} & \multicolumn{1}{c|}{\textbf{46}} & \multicolumn{1}{c|}{\textbf{49}} \\ \cline{2-8} 
-\multicolumn{1}{l|}{6} & \multicolumn{1}{c|}{\textbf{36}} & \multicolumn{1}{c|}{\textbf{36}} & \multicolumn{1}{c|}{\textbf{39}} & \multicolumn{1}{c|}{\textbf{42}} & \multicolumn{1}{c|}{\textbf{47}} & \multicolumn{1}{c|}{\textbf{50}} & \multicolumn{1}{c|}{\textbf{53}} \\ \cline{2-8} 
-\multicolumn{1}{l|}{7} & \multicolumn{1}{c|}{\textbf{42}} & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{\textbf{46}} & \multicolumn{1}{c|}{\textbf{50}} & \multicolumn{1}{c|}{\textbf{54}} & \multicolumn{1}{c|}{\textbf{56}} & \multicolumn{1}{c|}{\textbf{60}} \\ \cline{2-8} 
+\begin{tabular}{cccccccc}
+i\textbackslash{}j     & 1                       & 2                       & 3                       & 4                       & 5                       & 6                       & 7                       \\ \cline{2-8}
+\multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{5}  & \multicolumn{1}{c|}{10} & \multicolumn{1}{c|}{13} & \multicolumn{1}{c|}{16} & \multicolumn{1}{c|}{19} & \multicolumn{1}{c|}{22} \\ \cline{2-8}
+\multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{7}  & \multicolumn{1}{c|}{12} & \multicolumn{1}{c|}{16} & \multicolumn{1}{c|}{20} & \multicolumn{1}{c|}{22} & \multicolumn{1}{c|}{25} & \multicolumn{1}{c|}{28} \\ \cline{2-8}
+\multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{15} & \multicolumn{1}{c|}{18} & \multicolumn{1}{c|}{21} & \multicolumn{1}{c|}{26} & \multicolumn{1}{c|}{28} & \multicolumn{1}{c|}{32} & \multicolumn{1}{c|}{35} \\ \cline{2-8}
+\multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{21} & \multicolumn{1}{c|}{24} & \multicolumn{1}{c|}{29} & \multicolumn{1}{c|}{32} & \multicolumn{1}{c|}{35} & \multicolumn{1}{c|}{38} & \multicolumn{1}{c|}{42} \\ \cline{2-8}
+\multicolumn{1}{c|}{5} & \multicolumn{1}{c|}{28} & \multicolumn{1}{c|}{30} & \multicolumn{1}{c|}{35} & \multicolumn{1}{c|}{39} & \multicolumn{1}{c|}{42} & \multicolumn{1}{c|}{46} & \multicolumn{1}{c|}{49} \\ \cline{2-8}
+\multicolumn{1}{c|}{6} & \multicolumn{1}{c|}{36} & \multicolumn{1}{c|}{36} & \multicolumn{1}{c|}{39} & \multicolumn{1}{c|}{42} & \multicolumn{1}{c|}{47} & \multicolumn{1}{c|}{50} & \multicolumn{1}{c|}{53} \\ \cline{2-8}
+\multicolumn{1}{c|}{7} & \multicolumn{1}{c|}{42} & \multicolumn{1}{c|}{43} & \multicolumn{1}{c|}{46} & \multicolumn{1}{c|}{50} & \multicolumn{1}{c|}{54} & \multicolumn{1}{c|}{56} & \multicolumn{1}{c|}{60} \\ \cline{2-8}
 \end{tabular}
-\caption{ola}
 \end{table}
 
 \textcolor{red}{Solução ótima dual:...}
@@ -330,10 +329,6 @@ $$min \ Z = \sum_{s=1}^{n} \sum_{i=1}^{n} p_sY_s_i$$ \\
 O objetivo deste problema é escolher onde aplicar recursos de proteção de forma a minimizar o valor esperado de área ardida, dada a probabilidade de ignição em cada nodo. A resolução deste problema é semelhante à do problema anterior, onde queríamos proteger uma determinada célula. Neste caso, queremos proteger o maior número de células possíveis, consoante o ponto de ignição. Deste modo, introduzimos uma nova variável de decisão, Y\textsubscript{si}, que representa o facto de uma célula arder ou não, considerando um período de tempo, e um nodo de ignição do fogo. O objetivo passa por minimizar  o número de células que arderiam se o fogo começasse num nodo s.
 Para obtermos o valor esperado de área ardida, multiplicamos a probabilidade de ignição em s pelo número de células que seriam afetados por um fogo com início nesse nodo. A função objetivo tenta então minimizar o valor obtido pela repetição do cenário descrito em cada um dos nodos existentes. A restrição (i) força o tempo de chegada do fogo ao ponto de ignição a ser zero. A restrição (ii) impede que o tempo de chegada do fogo a um nodo seja inferior que o menor tempo de chegada a um adjacente, somado do tempo de propagação. A restrição (iii), em conjunto com a função objetivo, faz com o que tempo de chegada do fogo a um nodo seja maximizado (enquanto este for inferior a t\textsubscript{max}). Uma vez que queremos minimizar Y\textsubscript{si}, temos que aumentar o valor de T\textsubscript{si}. Se  T\textsubscript{si} for igual ou superior a t\textsubscript{max} então o lado direito da restrição (iii) é um valor negativo, pelo que teremos Y\textsubscript{si}=0, pois estamos a minimizar o seu valor. Este cenário significa que a célula i não arde se o fogo começar em s. Por outro lado, se T\textsubscript{si} for menor que  t\textsubscript{max} a célula vai arder. Efetivamente, o lado direito da restrição (iii) será um valor positivo, menor ou igual a um e superior a zero, pelo que Y\textsubscript{si} só poderá ter valor igual a um. A restrição (iv) limita o número de recursos aplicados.
 \subsection*{b)}
-\textcolor{red}{Para a instância em anexo, obtenha uma solução através do IBM ILOG CPLEX
-Optimization Studio com probabilidade de ignição na célula (i, j) dada por (14 - i -
-j)/500 e intervalo de 12 unidades de tempo. Represente a solução de forma adequada
-e interprete-a.}
 
 \begin{table}[h]
 \centering
@@ -350,6 +345,12 @@ i\textbackslash{}j     & 1                                                      
 \caption{Representação da solução ótima}
 \end{table}
 
+\begin{itemize}[$\ast$]
+	\item As células a amarelo representam os nodos onde foram gastos os recursos.
+    \item As células a branco são nodos normais.
+\end{itemize}
+A tabela 2 apresenta uma das representações gráficas da solução do problema. A cada célula está associado um valor que representa a área ardida caso o nodo de ignição seja o mesmo. As células pintadas a amarelo são os locais onde foram utilizados os recursos. Pela análise dos valores, concluímos que os valores mais baixos estão situados nos locais onde são alocados os recursos. A célula 7,7 tem o valor 49 que, neste caso, é um valor descontextualizado visto que, como a sua probabilidade de ignição é 0, este nodo nunca começará o fogo logo o valor da área ardida é indiferente.
+
 \begin{table}[h]
 \centering
 \begin{tabular}{cccccccc}
@@ -365,8 +366,15 @@ i\textbackslash{}j     & 1                                   & 2                
 \caption{Probabilidade da céluda arder}
 \end{table}
 
+Ao contrário da tabela 2 em que a interpretação da solução se baseava na área ardida provocada pela ignição de um nodo, a tabela 3 apresenta a probabilidade de um nodo arder. A probabilidade de um nodo arder é dada pela soma das probabilidades de ignição de todos os nodos à sua volta em que o fogo chega ao nodo desejado num intervalo de tempo menor que o pretendido. Assim sabendo que nodos ardem provocados pela ignição de outro nodo conseguimos prever a probabilidade de um dado nodo arder antes do tempo.
+\newpage
 \subsection*{c)}
 \textcolor{red}{Represente graficamente o valor esperado da área ardida em função do intervalo
 de tempo considerado. Interprete e comente.}
+\begin{figure*}[h]
+    \centering
+    \includegraphics[scale=0.3]{graf3.png}
+    \caption{Gráfico Tempo considerado - Área Ardida}
+\end{figure*}
 
 \end{document}
