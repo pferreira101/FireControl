@@ -77,7 +77,15 @@
 \section*{Contextualização}
 Tendo em conta o anexo do enunciado, construimos uma tabela com os tempos de propagação do fogo entre os vários nodos, considerando que a não existência de uma ligação entre dois nodos implicaria que o seu tempo de propagação fosse 99999. Ora, para povoarmos esta tabela, corremos o script que apresentamos de seguida no programa IBM ILOG CPLEX Optimization Studio:
 \begin{verbatim}
-int d[1..n][1..n];
+int a = ...;
+int n = a*a;
+
+int norte[1..a][1..a] = ...;
+int este[1..a][1..a] = ...;
+int sul[1..a][1..a] = ...;
+int oeste[1..a][1..a] = ...;
+ 
+int c[1..n][1..n];
 execute {
       for(var i = 1; i<=n; i++) {
             for(var j = 1; j<=n; j++){
@@ -85,15 +93,17 @@ execute {
                   var resto = i%a;
                   if(resto == 0) resto = a;
 
-                  if((i-j) == a && dv!=1) d[i][j] = norte[dv][resto];
-                  else if((i-j) == -1 && resto!=a) d[i][j] = este[dv][resto];
-                  else if((i-j) == -a && dv!=a) d[i][j] = sul[dv][resto];
-                  else if((i-j) == 1 && resto!=1) d[i][j] = oeste[dv][resto];
-                  else d[i][j] = 99999;
+                  if((i-j) == a && dv!=1) c[i][j] = norte[dv][resto];
+                  else if((i-j) == -1 && resto!=a) c[i][j] = este[dv][resto];
+                  else if((i-j) == -a && dv!=a) c[i][j] = sul[dv][resto];
+                  else if((i-j) == 1 && resto!=1) c[i][j] = oeste[dv][resto];
+                  else c[i][j] = 99999;
                   }
             }
  }
 \end{verbatim}
+Neste caso, a é igual a 7 e as matrizes \texttt{norte},\texttt{este},\texttt{sul} e \texttt{oeste} contêm os custos de propagação do fogo entre dois nodos, consoante a direção do segundo relativamente ao primeiro, tendo em conta o anexo do enunciado.
+
 
 Para o desenho dos grafos das soluções ótimas utilizamos a aplicação Web \textit{draw.io}.
 
@@ -167,6 +177,7 @@ Enquanto que o modelo primal tinha em consideração o número de caminhos a que
 
 Aplicando o modelo geral à instância descrita no anexo do enunciado, temos o seguinte modelo de programação linear: \\
 \textbf{Parâmetros:}  \\
+
 \begin{center}
 c\textsubscript{ij} - tempo de propagação no arco ij\\
 i=1,...,n e j=1,...n \\
@@ -219,7 +230,12 @@ i\textbackslash{}j     & 1                       & 2                       & 3  
 \end{tabular}
 \end{table}
 
-\textcolor{red}{Solução ótima dual:...}
+Solução ótima dual:
+	\begin{figure}[!htpb]
+		\centering
+    		\includegraphics[width=5in]{grafo1c.png}
+    		\caption{Representação gráfica da solução}
+	\end{figure}
 
 \newpage
 
@@ -308,7 +324,7 @@ s=1,...n \\
 \begin{center}
 X\textsubscript{i} = \begin{cases} 1, & \mbox{se é aplicado um recurso de proteção no nodo i}\\ 0, & \mbox{caso contrário}\end{cases} \\
 i=1,...,n \\
-T\textsubscript{sj} - tempo decorrido aquando da chegada de um fogo, com origem em s, ao nodo i\\
+T\textsubscript{si} - tempo decorrido aquando da chegada de um fogo, com origem em s, ao nodo i\\
 s=1,...,n e i=1,...,n \\
 Y\textsubscript{si} = \begin{cases} 1, & \mbox{se o fogo com início no nodo} \ s \ \mbox{chega a} \ i \  \mbox{num tempo inferior a t\textsubscript{max}} \\ 0, & \mbox{caso contrário}\end{cases} \\
 s=1,...,n e i=1,...,n

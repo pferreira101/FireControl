@@ -6,4 +6,4 @@
  sul from SheetRead(sheet, "Dados!sul");
  oeste from SheetRead(sheet, "Dados!oeste");
  
- d to SheetWrite(sheet, "Distancias!dist");
+ c to SheetWrite(sheet, "Distancias!dist");
