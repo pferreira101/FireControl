@@ -119,16 +119,16 @@ i=1,...,n e j=1,...n \\
 \end{center}
 \textbf{Variáveis de Decisão:} \\
 \begin{center}
-X\textsubscript{ij} - número de caminhos a que o arco que une os nodos i e j pertence\\
+x\textsubscript{ij} - número de caminhos a que o arco que une os nodos i e j pertence\\
 i=1,...,n e j=1,...n \\
 \end{center}
 \textbf{Função Objetivo:} \\
-$$min \ Z = \sum_{i=1}^{n} \sum_{j=1}^{n} c_i_jX_i_j$$
+$$min \ Z = \sum_{i=1}^{n} \sum_{j=1}^{n} c_i_jx_i_j$$
 \textbf{Sujeito a:}
 \begin{enumerate}[(i)]
-\item $$\sum_{j=2}^{n} (X_1_j - X_j_1) = n-1$$
-\item $$\sum_{j=1}^{n} (X_i_j - X_j_i) = -1, \forall i \in 2,...,n $$
-\item $$X_i_j \geq 0, \forall i \in 1,...,n , \forall j \in 1,...,n$$
+\item $$\sum_{j=2}^{n} (x_1_j - x_j_1) = n-1$$
+\item $$\sum_{j=1}^{n} (x_i_j - x_j_i) = -1, \forall i \in 2,...,n $$
+\item $$x_i_j \geq 0, \forall i \in 1,...,n , \forall j \in 1,...,n$$
 \end{enumerate}\\
 
 
@@ -139,16 +139,16 @@ Aplicando este modelo geral à instância descrita no anexo do enunciado, temos 
 
 \textbf{Variáveis de Decisão:} \\
 \begin{center}
-X\textsubscript{ij} - número de caminhos a que o arco que une os nodos i e j pertence\\
+x\textsubscript{ij} - número de caminhos a que o arco que une os nodos i e j pertence\\
 i=1,...,49 e j=1,...49 \\
 \end{center}
 \textbf{Função Objetivo:}
-$$Min \ Z = 99999X_1_,_1 + 5X_1_,_2+99999X_1_,_3+...+3X_4_9_,_4_8+99999X_4_9_,_4_9$$
+$$Min \ Z = 99999x_1_,_1 + 5x_1_,_2+99999x_1_,_3+...+3x_4_9_,_4_8+99999x_4_9_,_4_9$$
 \textbf{Sujeito a:}
 \begin{enumerate}[(i)]
-\item $$(X_1_2-X_2_1)+(X_1_3-X_3_1)+...+(X_1_,_4_8-X_4_8_,_1)+(X_1_,_4_9-X_4_9_,_1)=48$$
-\item $$(X_i_1-X_1_i)+(X_i_2-X_2_i)+...+(X_i_4_8-X_4_8_i)+(X_i_4_9-X_4_9_i)=-1, \forall i \in 2,...,49 $$
-\item $$X_i_j \geq 0, \forall i \in 1,...,49, \forall j \in 1,...,49$$
+\item $$(x_1_2-x_2_1)+(x_1_3-x_3_1)+...+(x_1_,_4_8-x_4_8_,_1)+(x_1_,_4_9-x_4_9_,_1)=48$$
+\item $$(x_i_1-x_1_i)+(x_i_2-x_2_i)+...+(x_i_4_8-x_4_8_i)+(x_i_4_9-x_4_9_i)=-1, \forall i \in 2,...,49 $$
+\item $$x_i_j \geq 0, \forall i \in 1,...,49, \forall j \in 1,...,49$$
 \end{enumerate}\\
 
 \subsection*{b)}
@@ -161,16 +161,16 @@ i=1,...,n e j=1,...n \\
 \end{center}
 \textbf{Variáveis de Decisão:} \\
 \begin{center}
-T\textsubscript{i} - tempo decorrido desde a ignição aquando da chegada do fogo ao nodo i\\
+t\textsubscript{i} - tempo decorrido desde a ignição aquando da chegada do fogo ao nodo i\\
 i=1,...,n\\
 \end{center}
 \textbf{Função Objetivo:}
-$$max \ Z = \sum_{i=1}^{n} T_i$$
+$$max \ Z = \sum_{i=1}^{n} t_i$$
 \textbf{Sujeito a:}
 \begin{enumerate}[(i)]
-\item $$T_1 = 0$$
-\item $$T_j \leq T_i + c_i_j, \forall i \in 1,...,n , \forall j \in 2,...,n$$
-\item $$T_i \geq 0, \forall i \in 1,...,n$$
+\item $$t_1 = 0$$
+\item $$t_j \leq t_i + c_i_j, \forall i \in 1,...,n , \forall j \in 2,...,n$$
+\item $$t_i \geq 0, \forall i \in 1,...,n$$
 \end{enumerate}
 
 Enquanto que o modelo primal tinha em consideração o número de caminhos a que um determinado arco pertencia, no modelo duas a variável de decisão representa o momento em que o fogo atinge um determinado nodo. Considerando a ignição no nodo 1, surge a restrição (i). Em conjunto com a função objetivo, a restrição (ii) garante que o tempo de chegada a cada nodo é o mínimo possível, tendo em conta a formulação do problema. Por um lado, queremos maximizar o tempo de chegada a cada nodo (função objetivo), por outro, pela restrição (ii), garante-se que o momento de chegada a um nodo j não é anterior ao menor dos tempos chegada ao conjunto dos nodos adjacentes a j, somado do custo de propagação para este. Por fim, a restrição (iii) estabelece a não negatividade das variáveis.
@@ -184,16 +184,16 @@ i=1,...,n e j=1,...n \\
 \end{center}
 \textbf{Variáveis de Decisão:} \\
 \begin{center}
-T\textsubscript{i} - tempo decorrido desde a ignição aquando da chegada do fogo ao nodo i\\
+t\textsubscript{i} - tempo decorrido desde a ignição aquando da chegada do fogo ao nodo i\\
 i=1,...,49\\
 \end{center}
 \textbf{Função Objetivo:} \\
-$$max \ Z = T_1+T_2+...+T_4_8+T_4_9$$
+$$max \ Z = t_1+t_2+...+t_4_8+t_4_9$$
 \textbf{Sujeito a:}
 \begin{enumerate}[(i)]
-\item $$T_1 = 0$$
-\item $$T_j \leq T_i + c_i_j, \forall i \in 1,...,49 , \forall j \in 2,...,49$$
-\item $$T_i \geq 0, \forall i \in 1,...,49$$
+\item $$t_1 = 0$$
+\item $$t_j \leq t_i + c_i_j, \forall i \in 1,...,49 , \forall j \in 2,...,49$$
+\item $$t_i \geq 0, \forall i \in 1,...,49$$
 \end{enumerate}
 
 
@@ -209,7 +209,20 @@ Solução ótima primal:
 	\end{figure}
 
 
-\textcolor{red}{Solução ótima dual:...}
+Solução ótima dual:
+\begin{table}[h]
+\centering
+\begin{tabular}{llllllll}
+i/j                    & 1                                & 2                                & 3                                & 4                                & 5                                & 6                                & 7                                 \\ \cline{2-8} 
+\multicolumn{1}{l|}{1} & \multicolumn{1}{l|}{\textbf{49}}  & \multicolumn{1}{l|}{\textbf{44}} & \multicolumn{1}{l|}{\textbf{39}} & \multicolumn{1}{l|}{\textbf{36}} & \multicolumn{1}{l|}{\textbf{33}} & \multicolumn{1}{l|}{\textbf{30}} & \multicolumn{1}{l|}{\textbf{27}}  \\ \cline{2-8} 
+\multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{\textbf{42}} & \multicolumn{1}{l|}{\textbf{37}} & \multicolumn{1}{l|}{\textbf{33}} & \multicolumn{1}{l|}{\textbf{29}} & \multicolumn{1}{l|}{\textbf{27}} & \multicolumn{1}{l|}{\textbf{24}} & \multicolumn{1}{l|}{\textbf{21}}  \\ \cline{2-8} 
+\multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{\textbf{34}} & \multicolumn{1}{l|}{\textbf{31}} & \multicolumn{1}{l|}{\textbf{28}} & \multicolumn{1}{l|}{\textbf{23}} & \multicolumn{1}{l|}{\textbf{21}} & \multicolumn{1}{l|}{\textbf{17}} & \multicolumn{1}{l|}{\textbf{14}}  \\ \cline{2-8} 
+\multicolumn{1}{l|}{4} & \multicolumn{1}{l|}{\textbf{28}} & \multicolumn{1}{l|}{\textbf{25}} & \multicolumn{1}{l|}{\textbf{20}} & \multicolumn{1}{l|}{\textbf{17}} & \multicolumn{1}{l|}{\textbf{14}} & \multicolumn{1}{l|}{\textbf{11}} & \multicolumn{1}{l|}{\textbf{7}}   \\ \cline{2-8} 
+\multicolumn{1}{l|}{5} & \multicolumn{1}{l|}{\textbf{21}} & \multicolumn{1}{l|}{\textbf{19}} & \multicolumn{1}{l|}{\textbf{14}} & \multicolumn{1}{l|}{\textbf{10}} & \multicolumn{1}{l|}{\textbf{7}}  & \multicolumn{1}{l|}{\textbf{3}}  & \multicolumn{1}{l|}{\textbf{0}}   \\ \cline{2-8} 
+\multicolumn{1}{l|}{6} & \multicolumn{1}{l|}{\textbf{13}} & \multicolumn{1}{l|}{\textbf{13}} & \multicolumn{1}{l|}{\textbf{10}} & \multicolumn{1}{l|}{\textbf{7}}  & \multicolumn{1}{l|}{\textbf{2}}  & \multicolumn{1}{l|}{\textbf{-1}} & \multicolumn{1}{l|}{\textbf{-4}}  \\ \cline{2-8} 
+\multicolumn{1}{l|}{7} & \multicolumn{1}{l|}{\textbf{7}}  & \multicolumn{1}{l|}{\textbf{6}}  & \multicolumn{1}{l|}{\textbf{3}}  & \multicolumn{1}{l|}{\textbf{-1}} & \multicolumn{1}{l|}{\textbf{-5}} & \multicolumn{1}{l|}{\textbf{-7}} & \multicolumn{1}{l|}{\textbf{-11}} \\ \cline{2-8} 
+\end{tabular}
+\end{table}
 
 \newpage
 
@@ -226,16 +239,19 @@ i/j                    & \multicolumn{1}{l}{1}            & \multicolumn{1}{l}{2
 \multicolumn{1}{l|}{4} & \multicolumn{1}{c|}{\textbf{21}} & \multicolumn{1}{c|}{\textbf{24}} & \multicolumn{1}{c|}{\textbf{29}} & \multicolumn{1}{c|}{\textbf{32}} & \multicolumn{1}{c|}{\textbf{35}} & \multicolumn{1}{c|}{\textbf{38}} & \multicolumn{1}{c|}{\textbf{42}} \\ \cline{2-8} 
 \multicolumn{1}{l|}{5} & \multicolumn{1}{c|}{\textbf{28}} & \multicolumn{1}{c|}{\textbf{30}} & \multicolumn{1}{c|}{\textbf{35}} & \multicolumn{1}{c|}{\textbf{39}} & \multicolumn{1}{c|}{\textbf{42}} & \multicolumn{1}{c|}{\textbf{46}} & \multicolumn{1}{c|}{\textbf{49}} \\ \cline{2-8} 
 \multicolumn{1}{l|}{6} & \multicolumn{1}{c|}{\textbf{36}} & \multicolumn{1}{c|}{\textbf{36}} & \multicolumn{1}{c|}{\textbf{39}} & \multicolumn{1}{c|}{\textbf{42}} & \multicolumn{1}{c|}{\textbf{47}} & \multicolumn{1}{c|}{\textbf{50}} & \multicolumn{1}{c|}{\textbf{53}} \\ \cline{2-8} 
-\multicolumn{1}{l|}{7} & \multicolumn{1}{c|}{\textbf{42}} & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{\textbf{46}} & \multicolumn{1}{c|}{\textbf{50}} & \multicolumn{1}{c|}{\textbf{54}} & \multicolumn{1}{c|}{\textbf{56}} & \multicolumn{1}{c|}{\textbf{60}} \\ \cline{2-8} 
+\multicolumn{1}{l|}{7} & \multicolumn{1}{c|}{\textbf{42}} & \multicolumn{1}{c|}{\textbf{43}}  & \multicolumn{1}{c|}{\textbf{46}} & \multicolumn{1}{c|}{\textbf{50}} & \multicolumn{1}{c|}{\textbf{54}} & \multicolumn{1}{c|}{\textbf{56}} & \multicolumn{1}{c|}{\textbf{60}} \\ \cline{2-8} 
 \end{tabular}
 \end{table}
 
 Solução ótima dual:
+\newpage
 	\begin{figure}[!htpb]
 		\centering
     		\includegraphics[width=5in]{grafo1c.png}
     		\caption{Representação gráfica da solução}
 	\end{figure}
+	
+Com isto, podemos verificar que a solução primal do modelo primal é igual à solução dual do modelo dual, como seria de esperar. Porém, a solução dual do modelo primal é diferente da solução primal do modelo dual, uma vez que os tempos da primeira solução não representam as variáveis duais mas, no entanto, a diferença de tempo entre cada nodo reflete o custo do arco que os une. Se subtrairmos o tempo do nodo 49 ao do nodo 1, obtemos 60, ou seja, obtemos o tempo que o fogo demora a chegar ao nodo 49 a partir do nodo 1, como pudemos comprovar pela solução primal do modelo dual.
 
 \newpage
 
@@ -256,22 +272,23 @@ objetivo - célula a que se pretende atrasar a chegada do fogo
 
 \textbf{Variáveis de Decisão:} \\
 \begin{center}
-X\textsubscript{i} = \begin{cases} 1, & \mbox{se é aplicado um recurso de proteção na célula i}  \\  0, & \mbox{caso contrário} \end{cases} \\
+x\textsubscript{i} = \begin{cases} 1, & \mbox{se é aplicado um recurso de proteção na célula i}  \\  0, & \mbox{caso contrário} \end{cases} \\
 i=1,...,n \\
-T\textsubscript{i} - tempo decorrido desde a ignição aquando da chegada do fogo ao nodo i \\
+t\textsubscript{i} - tempo decorrido desde a ignição aquando da chegada do fogo ao nodo i \\
 i=1,...,n \\
 \end{center}
 \textbf{Função Objetivo:} \\
-$$max \ Z = T\textsubscript{$objetivo$}$$ \\
+$$max \ Z = t\textsubscript{$objetivo$}$$ \\
 
 \textbf{Sujeito a:}
 \begin{enumerate}[(i)]
-\item $$T\textsubscript{ignição} = 0$$
-\item $$T_j \leq T_i + c_i_j + \Delta * X_i, \forall i \in Q\textsubscript{j} , \forall j \in 1,...,n$$
-\item $$\sum_{i=1}^{n} X_i \leq b$$
-\item $$T_i \geq 0, \forall i \in 1,...,n$$
+\item $$t\textsubscript{ignição} = 0$$
+\item $$t_j \leq t_i + c_i_j + \Delta * x_i, \forall i \in Q\textsubscript{j} , \forall j \in 1,...,n$$
+\item $$\sum_{i=1}^{n} x_i \leq b$$
+\item $$t_i \geq 0, \forall i \in 1,...,n$$
+\item $$x_i \in \{0,1\}, \forall i \in 1,...,n$$
 \end{enumerate}
-O objetivo do problema é escolher onde aplicar recursos de proteção, que atrasam a propagação do fogo, de forma a retardar o máximo possível o momento de chegada do fogo a um determinado nodo (nodo objetivo). Para alcançar esse fim, consideramos como variável de decisão o tempo de chegada do fogo a cada nodo. Logo, a função objetivo procura maximizar o tempo de chegada ao nodo objetivo. Uma vez que a célula de ignição é um parâmetro do problema e não um valor fixo, temos de associar matematicamente o início do fogo ao nodo de ignição. A restrição (i) garante essa associação. A restrição (ii), em conjunto com a função objetivo, assegura a correta aplicação dos recursos de proteção, em função da célula que queremos proteger. Uma vez que o tempo de chegada do fogo a um certo nodo é definido por recorrência, isto é, o momento de chegada a um nodo j define-se à custa do tempo de chegada a outro nodo e assim sucessivamente até alcançarmos o nodo de ignição, único que se define a si mesmo, o modelo optará por colocar proteções em células que façam parte do caminho percorrido pelo fogo até ao nodo que queremos proteger, maximizando o tempo de chegada a este. A restrição(iii) limita o número de recursos aplicados e a restrição (iv) define a não negatividade das variáveis.
+O objetivo do problema é escolher onde aplicar recursos de proteção, que atrasam a propagação do fogo, de forma a retardar o máximo possível o momento de chegada do fogo a um determinado nodo (nodo objetivo). Para alcançar esse fim, consideramos como variável de decisão o tempo de chegada do fogo a cada nodo. Logo, a função objetivo procura maximizar o tempo de chegada ao nodo objetivo. Uma vez que a célula de ignição é um parâmetro do problema e não um valor fixo, temos de associar matematicamente o início do fogo ao nodo de ignição. A restrição (i) garante essa associação. A restrição (ii), em conjunto com a função objetivo, assegura a correta aplicação dos recursos de proteção, em função da célula que queremos proteger. Uma vez que o tempo de chegada do fogo a um certo nodo é definido por recorrência, isto é, o momento de chegada a um nodo j define-se à custa do tempo de chegada a outro nodo e assim sucessivamente até alcançarmos o nodo de ignição, único que se define a si mesmo, o modelo optará por colocar proteções em células que façam parte do caminho percorrido pelo fogo até ao nodo que queremos proteger, maximizando o tempo de chegada a este. A restrição(iii) limita o número de recursos aplicados e a restrição (iv) define a não negatividade das variáveis. A restrição (v) limita os valores de x a 0 e 1.
 A função objetivo traduz a finalidade pretendida.
 \subsection*{b)}
 \begin{table}[h]
@@ -322,28 +339,30 @@ s=1,...n \\
 \textbf{Variáveis de Decisão:} \\
 
 \begin{center}
-X\textsubscript{i} = \begin{cases} 1, & \mbox{se é aplicado um recurso de proteção no nodo i}\\ 0, & \mbox{caso contrário}\end{cases} \\
+x\textsubscript{i} = \begin{cases} 1, & \mbox{se é aplicado um recurso de proteção no nodo i}\\ 0, & \mbox{caso contrário}\end{cases} \\
 i=1,...,n \\
-T\textsubscript{si} - tempo decorrido aquando da chegada de um fogo, com origem em s, ao nodo i\\
+t\textsubscript{si} - tempo decorrido aquando da chegada de um fogo, com origem em s, ao nodo i\\
 s=1,...,n e i=1,...,n \\
-Y\textsubscript{si} = \begin{cases} 1, & \mbox{se o fogo com início no nodo} \ s \ \mbox{chega a} \ i \  \mbox{num tempo inferior a t\textsubscript{max}} \\ 0, & \mbox{caso contrário}\end{cases} \\
+y\textsubscript{si} = \begin{cases} 1, & \mbox{se o fogo com início no nodo} \ s \ \mbox{chega a} \ i \  \mbox{num tempo inferior a t\textsubscript{max}} \\ 0, & \mbox{caso contrário}\end{cases} \\
 s=1,...,n e i=1,...,n
 \end{center}
 
 \textbf{Função Objetivo:} \\
-$$min \ Z = \sum_{s=1}^{n} \sum_{i=1}^{n} p_sY_s_i$$ \\
+$$min \ Z = \sum_{s=1}^{n} \sum_{i=1}^{n} p_sy_s_i$$ \\
 
 
 \textbf{Sujeito a:}
 \begin{enumerate}[(i)]
-\item $$T\textsubscript{ss} = 0, \forall s \in 1,...,n$$
-\item $$T_s_j \leq T_s_i + d_i_j + \Delta X_i, \forall s \in 1,...n, \forall i \in 1,...,n , \forall j \in 1,...,n$$
-\item $$Y_s_i \geq \frac{ t\textsubscript{max}-T_s_i}{t\textsubscript{max}}, \forall s \in 1,...,n, \forall i \in 1,...,n $$
-\item $$\sum_{i=1}^{n} X_i \leq b$$
+\item $$t\textsubscript{ss} = 0, \forall s \in 1,...,n$$
+\item $$t_s_j \leq t_s_i + c_i_j + \Delta x_i, \forall s \in 1,...n, \forall i \in 1,...,n , \forall j \in 1,...,n$$
+\item $$y_s_i \geq \frac{ t\textsubscript{max}-t_s_i}{t\textsubscript{max}}, \forall s \in 1,...,n, \forall i \in 1,...,n $$
+\item $$\sum_{i=1}^{n} x_i \leq b$$
+\item $$x_i \in \{0,1\}, \forall i \in 1,...,n$$
+\item $$y_s_i \in \{0,1\}, \forall s \in 1,...,n, \forall i \in 1,...,n$$
 \end{enumerate}
 
-O objetivo deste problema é escolher onde aplicar recursos de proteção de forma a minimizar o valor esperado de área ardida, dada a probabilidade de ignição em cada nodo. A resolução deste problema é semelhante à do problema anterior, onde queríamos proteger uma determinada célula. Neste caso, queremos proteger o maior número de células possíveis, consoante o ponto de ignição. Deste modo, introduzimos uma nova variável de decisão, Y\textsubscript{si}, que representa o facto de uma célula arder ou não, considerando um período de tempo, e um nodo de ignição do fogo. O objetivo passa por minimizar  o número de células que arderiam se o fogo começasse num nodo s.
-Para obtermos o valor esperado de área ardida, multiplicamos a probabilidade de ignição em s pelo número de células que seriam afetados por um fogo com início nesse nodo. A função objetivo tenta então minimizar o valor obtido pela repetição do cenário descrito em cada um dos nodos existentes. A restrição (i) força o tempo de chegada do fogo ao ponto de ignição a ser zero. A restrição (ii) impede que o tempo de chegada do fogo a um nodo seja inferior que o menor tempo de chegada a um adjacente, somado do tempo de propagação. A restrição (iii), em conjunto com a função objetivo, faz com o que tempo de chegada do fogo a um nodo seja maximizado (enquanto este for inferior a t\textsubscript{max}). Uma vez que queremos minimizar Y\textsubscript{si}, temos que aumentar o valor de T\textsubscript{si}. Se  T\textsubscript{si} for igual ou superior a t\textsubscript{max} então o lado direito da restrição (iii) é um valor negativo, pelo que teremos Y\textsubscript{si}=0, pois estamos a minimizar o seu valor. Este cenário significa que a célula i não arde se o fogo começar em s. Por outro lado, se T\textsubscript{si} for menor que  t\textsubscript{max} a célula vai arder. Efetivamente, o lado direito da restrição (iii) será um valor positivo, menor ou igual a um e superior a zero, pelo que Y\textsubscript{si} só poderá ter valor igual a um. A restrição (iv) limita o número de recursos aplicados.
+O objetivo deste problema é escolher onde aplicar recursos de proteção de forma a minimizar o valor esperado de área ardida, dada a probabilidade de ignição em cada nodo. A resolução deste problema é semelhante à do problema anterior, onde queríamos proteger uma determinada célula. Neste caso, queremos proteger o maior número de células possíveis, consoante o ponto de ignição. Deste modo, introduzimos uma nova variável de decisão, y\textsubscript{si}, que representa o facto de uma célula arder ou não, considerando um período de tempo, e um nodo de ignição do fogo. O objetivo passa por minimizar  o número de células que arderiam se o fogo começasse num nodo s.
+Para obtermos o valor esperado de área ardida, multiplicamos a probabilidade de ignição em s pelo número de células que seriam afetados por um fogo com início nesse nodo. A função objetivo tenta então minimizar o valor obtido pela repetição do cenário descrito em cada um dos nodos existentes. A restrição (i) força o tempo de chegada do fogo ao ponto de ignição a ser zero. A restrição (ii) impede que o tempo de chegada do fogo a um nodo seja inferior que o menor tempo de chegada a um adjacente, somado do tempo de propagação. A restrição (iii), em conjunto com a função objetivo, faz com o que tempo de chegada do fogo a um nodo seja maximizado (enquanto este for inferior a t\textsubscript{max}). Uma vez que queremos minimizar y\textsubscript{si}, temos que aumentar o valor de t\textsubscript{si}. Se  t\textsubscript{si} for igual ou superior a t\textsubscript{max} então o lado direito da restrição (iii) é um valor negativo, pelo que teremos y\textsubscript{si}=0, pois estamos a minimizar o seu valor. Este cenário significa que a célula i não arde se o fogo começar em s. Por outro lado, se t\textsubscript{si} for menor que  t\textsubscript{max} a célula vai arder. Efetivamente, o lado direito da restrição (iii) será um valor positivo, menor ou igual a um e superior a zero, pelo que y\textsubscript{si} só poderá ter valor igual a um. A restrição (iv) limita o número de recursos aplicados. Por fim, as restrições (v) e (vi) limitam os valores de x e y a 0 e 1.
 \subsection*{b)}
 
 \begin{table}[h]
@@ -391,6 +410,6 @@ Ao contrário da tabela 2 em que a interpretação da solução se baseava na á
     \caption{Gráfico Tempo considerado - Área Ardida}
 \end{figure*}
 
-A figura 3 estabelece um correspondência entre a tmax utilizado e o a área ardida. Os valores correspondem a amostras que corremos no nosso modelo e que foram mais tarde utilizados para a construção do gráfico. O intervalo de tempo mais pequeno que consideramos foi o 1. Inicialmente, era expectável que para um intervalo tão pequeno a área ardida não fosse menor que 1 (local onde o fogo começa). No entanto, como existe a possibilidade de não haver fogo, a área ardida pode tomar valores inferiores, mas nunca inferiores a 0. À medida que o tempo aumenta, a área ardida também aumenta, numa fase inicial, até serem considerados intervalos de tempo muito grandes em que a área esperada estagne ou atinja valores muito próximos de 49 (tudo ardido). Infelizmente, não conseguimos arranjar valores que suportem o que afirmamos, uma vez que o tempo de cálculo do OPL cresce em tempo exponencial e ,se para tmax = 36, a solução ótima demorou 30 minutos a ser calculada. Assim, para valores de tmax, em que arde tudo, iria, certamente, demorar horas, tornando a situação impraticável.
+A figura 4 estabelece um correspondência entre o t\textsubscript{max} utilizado e o a área ardida. Os valores correspondem a amostras que corremos no nosso modelo e que foram mais tarde utilizados para a construção do gráfico. O intervalo de tempo mais pequeno que consideramos foi o 1. Inicialmente, era expectável que para um intervalo tão pequeno a área ardida não fosse menor que 1 (local onde o fogo começa). No entanto, como existe a possibilidade de não haver fogo, a área ardida pode tomar valores inferiores, mas nunca inferiores a 0. À medida que o tempo aumenta, a área ardida também aumenta, numa fase inicial, até serem considerados intervalos de tempo muito grandes em que a área esperada estagne ou atinja valores muito próximos de 49 (tudo ardido). Infelizmente, não conseguimos arranjar valores que suportem o que afirmamos, uma vez que o tempo de cálculo do OPL cresce em tempo exponencial e ,se para t\textsubscript{max} = 36, a solução ótima demorou 30 minutos a ser calculada. Assim, para valores de t\textsubscript{max}, em que arde tudo, iria, certamente, demorar horas, tornando a situação impraticável.
 
 \end{document}
