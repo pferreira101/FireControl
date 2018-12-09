@@ -369,12 +369,12 @@ i\textbackslash{}j     & 1                                   & 2                
 Ao contrário da tabela 2 em que a interpretação da solução se baseava na área ardida provocada pela ignição de um nodo, a tabela 3 apresenta a probabilidade de um nodo arder. A probabilidade de um nodo arder é dada pela soma das probabilidades de ignição de todos os nodos à sua volta em que o fogo chega ao nodo desejado num intervalo de tempo menor que o pretendido. Assim sabendo que nodos ardem provocados pela ignição de outro nodo conseguimos prever a probabilidade de um dado nodo arder antes do tempo.
 \newpage
 \subsection*{c)}
-\textcolor{red}{Represente graficamente o valor esperado da área ardida em função do intervalo
-de tempo considerado. Interprete e comente.}
 \begin{figure*}[h]
     \centering
     \includegraphics[scale=0.3]{graf3.png}
     \caption{Gráfico Tempo considerado - Área Ardida}
 \end{figure*}
+
+A figura 3 estabelece um correspondência entre a tmax utilizado e o a área ardida. Os valores correspondem a amostras que corremos no nosso modelo e que foram mais tarde utilizados para a construção do gráfico. O intervalo de tempo mais pequeno que consideramos foi o 1. Inicialmente, era expectável que para um intervalo tão pequeno a área ardida não fosse menor que 1 (local onde o fogo começa). No entanto, como existe a possibilidade de não haver fogo, a área ardida pode tomar valores inferiores, mas nunca inferiores a 0. À medida que o tempo aumenta, a área ardida também aumenta, numa fase inicial, até serem considerados intervalos de tempo muito grandes em que a área esperada estagne ou atinja valores muito próximos de 49 (tudo ardido). Infelizmente, não conseguimos arranjar valores que suportem o que afirmamos, uma vez que o tempo de cálculo do OPL cresce em tempo exponencial e ,se para tmax = 36, a solução ótima demorou 30 minutos a ser calculada. Assim, para valores de tmax, em que arde tudo, iria, certamente, demorar horas, tornando a situação impraticável.
 
 \end{document}
