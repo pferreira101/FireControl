@@ -102,7 +102,7 @@ execute {
             }
  }
 \end{verbatim}
-Neste caso, a é igual a 7 e as matrizes \texttt{norte},\texttt{este},\texttt{sul} e \texttt{oeste} contêm os custos de propagação do fogo entre dois nodos, consoante a direção do segundo relativamente ao primeiro, tendo em conta o anexo do enunciado.
+Neste caso, a é igual a 7 e as matrizes \texttt{norte}, \texttt{este}, \texttt{sul} e \texttt{oeste} contêm os custos de propagação do fogo entre dois nodos, consoante a direção do segundo relativamente ao primeiro, tendo em conta o anexo do enunciado.
 
 
 Para o desenho dos grafos das soluções ótimas utilizamos a aplicação Web \textit{draw.io}.
@@ -175,7 +175,8 @@ $$max \ Z = \sum_{i=1}^{n} t_i$$
 
 Enquanto que o modelo primal tinha em consideração o número de caminhos a que um determinado arco pertencia, no modelo duas a variável de decisão representa o momento em que o fogo atinge um determinado nodo. Considerando a ignição no nodo 1, surge a restrição (i). Em conjunto com a função objetivo, a restrição (ii) garante que o tempo de chegada a cada nodo é o mínimo possível, tendo em conta a formulação do problema. Por um lado, queremos maximizar o tempo de chegada a cada nodo (função objetivo), por outro, pela restrição (ii), garante-se que o momento de chegada a um nodo j não é anterior ao menor dos tempos chegada ao conjunto dos nodos adjacentes a j, somado do custo de propagação para este. Por fim, a restrição (iii) estabelece a não negatividade das variáveis.
 
-Aplicando o modelo geral à instância descrita no anexo do enunciado, temos o seguinte modelo de programação linear: \\
+Aplicando o modelo geral à instância descrita no anexo do enunciado, temos o seguinte modelo de programação linear: 
+
 \textbf{Parâmetros:}  \\
 
 \begin{center}
@@ -208,7 +209,7 @@ Solução ótima primal:
     		\caption{Representação gráfica da solução}
 	\end{figure}
 
-
+\newpage
 Solução ótima dual:
 \begin{table}[h]
 \centering
@@ -224,7 +225,6 @@ i/j                    & 1                                & 2                   
 \end{tabular}
 \end{table}
 
-\newpage
 
 \subsection*{d)}
 Solução ótima primal:
@@ -243,8 +243,9 @@ i/j                    & \multicolumn{1}{l}{1}            & \multicolumn{1}{l}{2
 \end{tabular}
 \end{table}
 
-Solução ótima dual:
 \newpage
+Solução ótima dual:
+
 	\begin{figure}[!htpb]
 		\centering
     		\includegraphics[width=5in]{grafo1c.png}
